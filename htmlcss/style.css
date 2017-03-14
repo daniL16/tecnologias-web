@@ -1,0 +1,102 @@
+#cabecera{
+    width: 100%;
+    display:flex;
+    background-color: firebrick;
+    color:white;
+}
+
+#titulo{
+    font-size:20pt;
+    padding-left: 3%;
+    width: 60%; 
+}
+
+#form_busqueda{
+    align-self: center;
+}
+
+.navegador{
+    width: 100%;
+    display: inline-block;
+    background-color: beige;
+}
+
+.navegador li{
+    display: inline;
+}
+
+#nav_general{
+    width: 70%;
+    float: left;
+}
+
+#nav_general a{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+
+#nav_rapida{
+    float: right;
+}
+
+#nav_rapida a{
+    text-decoration: none;
+    color:black;
+    padding: 7px;
+    font-size: 8pt;
+}
+
+#cuerpo{
+    display: block;
+}
+
+#col_der{
+    float: right;
+    width: 47%;
+}
+
+#col_izq{
+    padding-right: 6%;
+    width: 47%;
+    float: left;
+}
+
+#ugr_cifras{
+    background-color: beige;
+    padding: 20px;
+}
+
+#ugr_cifras a{
+    float: right;
+    text-decoration: none;
+    color: black;
+    
+}
+
+#datos{
+    list-style: none;
+    
+}
+.titulos{
+    color: firebrick;
+}
+
+#col_izq img{
+    float: left;
+    padding-right: 5px;
+    width: 30%;
+}
+
+#col_izq ul{
+    width: 80%;
+}
+#col_izq ul a{
+    text-decoration: none;
+}
+
+#col_izq ul li{ 
+width: 80%;
+display: inline;
+}
