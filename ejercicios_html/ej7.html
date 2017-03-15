@@ -1,0 +1,46 @@
+<html>
+<header>
+    <meta charset="utf-8">
+</header>
+
+<body>
+<form action="procesar.php" method="post">
+<fieldset>
+    <legend>Información personal</legend>
+    <label>Nombre:<input type="text" name="nombre"></label><br>
+    <label>Apellidos:<input type="text" name="apellidos"></label><br>
+    <label>Dirección postal: <input type="text" name="direccion"></label><br>
+    <label>Fecha de nacimiento: <input type="date" name="fecha"></label><br>
+    <label>Teléfono: <input type="tel" name="tlf"></label><br>
+    <label>Correo electrónico: <input type="email" name="correo"></label><br>
+    <label>Cuenta corriente: <input type="number" name="cc"></label><br>
+    </fieldset>
+    
+<fieldset>
+    <legend>Información de la suscripción</legend>
+    <label>Revista:<br><input type="radio" name="revista" value="sabelotodo">Sabelotodo<br>
+    <input type="radio" name="revista" value="solose">Sólo se que no se nada<br>
+    <input type="radio" name="revista" value="interesante">Muy interesante<br>
+    <input type="radio" name="revista" value="sabor">Ciencia con sabor<br></label>
+    <label>Tipo de suscripción<br><input type="radio" name="tipo" value="anual" checked>Anual<br>
+        <input type="radio" name="tipo" value="bianual"> Bianual<br></label>
+    <label>Modo de pago:<br><input type="radio" name="pago" value="paypal">Paypal<br>
+    <input type="radio" name="pago" value="visa">Visa<br>
+    <input type="radio" name="pago" value="reembolso">Reembolso<br></label>
+    </fieldset>
+    
+<fieldset>
+    <legend>Otra información</legend>
+    <label>Otros temas de interés:<br><input type="checkbox" name="otros" value="gastronomia">Gastronomía
+    <br><input type="checkbox" name="otros" value="motor">Motor
+    <br><input type="checkbox" name="otros" value="viajes">Viajes</label>
+    <br><input type="checkbox" name="condiciones">Deseo recibir publicidad via email
+    </fieldset>   
+    <input type="submit" value="Enviar">
+    
+</form>
+</body>
+
+
+
+</html>
