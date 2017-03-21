@@ -5,6 +5,10 @@
     color:white;
 }
 
+footer{
+    background-color: firebrick;
+}
+
 #titulo{
     font-size:20pt;
     padding-left: 3%;
@@ -55,6 +59,7 @@
 #col_der{
     float: right;
     width: 47%;
+    height: 900px;
 }
 
 #col_izq{
@@ -83,20 +88,86 @@
     color: firebrick;
 }
 
+
 #col_izq img{
     float: left;
     padding-right: 5px;
-    width: 30%;
+    width: 27%;
 }
 
-#col_izq ul{
-    width: 80%;
+#col_izq section{
+    display: table;
 }
-#col_izq ul a{
+ul.columnas{
+    width: 100%;
+    float: left;
+}
+ul.columnas li{
+    display: inline;
+    width: 50%;
+    float: left;
+}
+
+#col_izq ul a:link{
     text-decoration: none;
+    color:black;
 }
 
-#col_izq ul li{ 
-width: 80%;
-display: inline;
+#col_izq ul a:visited{
+    text-decoration: none;
+    color:black;
+}
+#nav_general a:hover{
+    text-decoration:underline;
+    color:red;
+}
+
+
+.boton {    font-family: verdana, arial, sans-serif;
+   font-size: 10pt;
+   font-weight: bold;
+   padding: 4px;
+   background-color: #ffffcc;
+   color: #666666;
+   text-decoration: none;
+}
+.boton:link,
+.boton:visited {
+   border-top: 1px solid #cccccc;
+   border-bottom: 2px solid #666666;
+   border-left: 1px solid #cccccc;
+   border-right: 2px solid #666666;
+}
+.boton:hover {
+    border-bottom: 1px solid #cccccc;
+   border-top: 2px solid #666666;
+   border-right: 1px solid #cccccc;
+   border-left: 2px solid #666666;
+}
+.enlaces section{
+    width: -moz-fit-content;
+    height: -moz-fit-content;
+    
+}
+
+.enlaces{
+width: 70%;
+    }
+#botones{
+   
+    float: right;
+}
+
+#enlaces_rapidos{
+    width: 100%;
+}
+#enlaces{
+    display:inline-block;
+    width:75%;
+    
+}
+
+#enlaces .cajita{
+width: 15%;
+float: left;
 }
