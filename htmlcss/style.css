@@ -7,6 +7,33 @@
 
 footer{
     background-color: firebrick;
+    color:white;
+    height: 150px;
+    align-content: center;
+}
+footer ul li{
+    
+    text-decoration: none;
+    display: inline;
+    
+}
+footer ul li a{
+color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+footer #info{
+    padding: 10px;
+}
+
+#name{
+    width: 25%;
+    height: 100%;
+    float: left;
+    padding: 10px;
+    font-size: 20pt;
+    color: white;
+    
 }
 
 #titulo{
@@ -59,13 +86,21 @@ footer{
 #col_der{
     float: right;
     width: 47%;
-    height: 900px;
+    height: 1050px;
 }
 
 #col_izq{
     padding-right: 6%;
     width: 47%;
     float: left;
+}
+#titulo_cuerpo{
+    color: grey;
+}
+#col_izq section p{
+    font-family: monospace;
+    font-size: 10pt;
+     color: grey;
 }
 
 #ugr_cifras{
@@ -77,17 +112,15 @@ footer{
     float: right;
     text-decoration: none;
     color: black;
-    
 }
 
 #datos{
     list-style: none;
-    
 }
+
 .titulos{
     color: firebrick;
 }
-
 
 #col_izq img{
     float: left;
@@ -98,76 +131,78 @@ footer{
 #col_izq section{
     display: table;
 }
+
 ul.columnas{
     width: 100%;
     float: left;
 }
+
 ul.columnas li{
     display: inline;
     width: 50%;
     float: left;
 }
 
-#col_izq ul a:link{
+#col_izq ul a{
     text-decoration: none;
+    font-weight: bold; 
+    font-size:10pt;
     color:black;
+    
 }
 
 #col_izq ul a:visited{
     text-decoration: none;
     color:black;
 }
+
 #nav_general a:hover{
     text-decoration:underline;
     color:red;
 }
 
-
-.boton {    font-family: verdana, arial, sans-serif;
-   font-size: 10pt;
-   font-weight: bold;
-   padding: 4px;
-   background-color: #ffffcc;
-   color: #666666;
-   text-decoration: none;
-}
-.boton:link,
-.boton:visited {
-   border-top: 1px solid #cccccc;
-   border-bottom: 2px solid #666666;
-   border-left: 1px solid #cccccc;
-   border-right: 2px solid #666666;
-}
-.boton:hover {
-    border-bottom: 1px solid #cccccc;
-   border-top: 2px solid #666666;
-   border-right: 1px solid #cccccc;
-   border-left: 2px solid #666666;
-}
-.enlaces section{
-    width: -moz-fit-content;
-    height: -moz-fit-content;
-    
-}
-
-.enlaces{
-width: 70%;
-    }
-#botones{
+.boton {    
    
+   font-size: 12pt;
+   padding: 10px;
+   background-color: lightgrey;
+   color: black;
+   text-decoration: none;
+  
+}
+
+
+
+#botones{
+    width: 25%;  
     float: right;
+    background-color: beige;
+}
+#botones ul{
+    list-style: none;
+}
+#botones ul li{
+    padding: 15px;
 }
 
 #enlaces_rapidos{
     width: 100%;
+    
 }
+
 #enlaces{
     display:inline-block;
-    width:75%;
-    
+    width:75%;    
+    background-color:beige;
+}
+
+#enlaces .cajita a{
+    text-decoration: none;
+    color: grey;
 }
 
 #enlaces .cajita{
 width: 15%;
 float: left;
 }
+
