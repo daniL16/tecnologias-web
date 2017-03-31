@@ -1,0 +1,26 @@
+h1{
+  background-color: blue;
+}
+#desc{
+  font-weight: bold;
+}
+#caract{
+  background-color: orange;
+}
+h4{
+  font-weight: bold;
+}
+body{
+  background-color: lightblue;
+}
+footer{
+  background-color: blue;   
+}
+footer ul{
+    list-style: none;
+  }
+footer ul li{
+  
+  display: inline; 
+  padding: 30px;
+}
