@@ -1,0 +1,15 @@
+#ficha {
+  border: 1px solid;
+  width: 50%;
+  height: 50%;
+}
+
+#ficha img{
+  float: left;
+  width: 10%;
+  padding: 7px;  
+}
+#datos{
+  width: 40%;
+  float: left;
+}

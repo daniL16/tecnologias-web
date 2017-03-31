@@ -1,0 +1,38 @@
+header {
+  background-color: beige;
+}
+
+#titulo {
+  width: 40%;
+  float: left;
+}
+
+#login{
+  padding: 10px;
+  width: 40%
+  float:right;
+}
+
+#nav{
+  float: left;
+  width: 20%;
+  background-color: beige;
+}
+
+#nav ul{
+  list-style: none;
+}
+#nav a {
+  text-decoration: none;
+}
+
+#contenido{
+  width: 70%;
+  float: left;
+}
+
+#pie{
+  clear: both;
+  padding: 10px;
+  background-color: beige;
+}
