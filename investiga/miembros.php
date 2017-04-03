@@ -8,7 +8,7 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
-   <p>LH NO FALLA!</p>
+   <p>LH16 NO FALLA!</p>
     </article>
 <?php include 'inc/footer.html'?>
 </body>
