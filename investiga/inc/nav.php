@@ -9,7 +9,7 @@
         if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado'){
             echo "<li><a href=>Añadir/editar publicación</a></li>";
             echo "<li><a href=>Añadir/editar proyecto</a></li>";
-            if($_SESSION['usuario'] == 'admin'){
+            if($_SESSION['admin']){
                echo "<li><a href=>Editar usuario</a></li>";
                echo "<li><a href=>Ver log</a></li>";
                echo "<li><a href=>Realizar un backup</a></li>";

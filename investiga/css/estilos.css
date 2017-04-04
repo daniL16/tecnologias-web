@@ -1,5 +1,6 @@
 header {
   background-color: beige;
+  height: 15%;  
 }
 
 #titulo {
@@ -17,6 +18,7 @@ header {
   float: left;
   width: 20%;
   background-color: beige;
+  height: 100%;
 }
 
 #nav ul{

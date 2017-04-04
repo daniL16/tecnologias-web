@@ -3,26 +3,34 @@
 </head>
 <body>
     <?php
-        $v = ["Navegador" => ["Crhome","Internet Explorer","Firefox","Safari"],"Autor"=>["Google","Microsoft","Mozilla","Opera","Apple"],
-              "Licencia" =>["BSD","privativo","GNU","privativo"],"Motor"=>["Blink","Trident","Gecko","Webkit"]];
+        $v = ["Chrome"=>["Autor"=>"Google","Licencia" =>"BSD","Motor"=>"Blink"],"Internet Explorer"=>["Autor"=>"Microsoft","Licencia" =>"privativo","Motor"=>"Trident"],"Firefox"=>["Autor"=>"Mozilla","Licencia" =>"GNU","Motor"=>"Gecko"],"Safari"=>["Autor"=>"Apple","Licencia" =>"privativo","Motor"=>"Webkit"]];
+    
     ?>
+    
+    
     
     <table>
         <thead>
-            <tr>
-               
-                    <?php   foreach($v[0] as $key=>$value){
-            $html .= '<th>' . htmlspecialchars($key) . '</th>';
-        } ?>
-            </tr>
+        <tr>
+            <th>Navegador</th>
+	    <th>Autor</th>
+	    <th>Licencia</th>
+	    <th>Motor</th>            
+	</tr>
         </thead>
-        <tbody>
-            <?php foreach ($v as $row):
-                echo "<tr><td>".implode('</td><td>', $row)."</td></tr>";
-                endforeach;
-            ?>
-  </tbody>
-</table>
+        
+	<tbody>
+        <?php  foreach (array_keys($v) as $key):
+                    echo "<tr><td>".$key."</td>";
+                    foreach($v[$key] as $celda):
+                        echo "<td>".$celda."</td>";
+                    endforeach;
+                    echo "</tr>";
+                    endforeach;
+            
+        ?>
+        </tbody>
+    </table>
 </body>
 </html>
 

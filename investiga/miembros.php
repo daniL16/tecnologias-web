@@ -2,6 +2,7 @@
 <head lang="es">
     <meta charset="utf-8">
     <link rel = "stylesheet" type = "text/css" href = "./css/estilos.css" />
+    <link rel = "stylesheet" type = "text/css" href = "./css/ficha.css" />
     <title>Grupo de Investigación</title>
 </head>
 <body>
