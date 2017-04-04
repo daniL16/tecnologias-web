@@ -5,7 +5,7 @@
         <li><a href="../publicaciones.php">Publicaciones</a></li>
         <li><a href="../proyectos.php">Proyectos</a></li>
         <?php
-        
+        session_start();
         if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado'){
             echo "<li><a href=>Añadir/editar publicación</a></li>";
             echo "<li><a href=>Añadir/editar proyecto</a></li>";

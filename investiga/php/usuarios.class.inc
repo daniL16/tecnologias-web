@@ -17,6 +17,10 @@ class Usuarios extends DataObject {
         "CENTRO" => "",
         "UNIVERSIDAD" => "",
         "FOTO" => "",
+        "ES_DIRECTOR"=>"",
+        "ADMIN"=>"",
+        "BLOQUEO"=>"",
+        "MIEMBRO_ANTIGUO"=>""
     );
 
     public static function obtenerUsuarios($filaInicio, $numeroFilas, $orden) {
@@ -92,7 +96,7 @@ class Usuarios extends DataObject {
 
     public static function login($usuario, $pass) {
         $conexion = parent::conectar();
-        $query = "SELECT * FROM " . TABLA_USUARIOS . " WHERE ID_USUARIO='".$usuario."' AND CLAVE='".$pass."'";
+        $query = "SELECT * FROM " . TABLA_MIEMBROS . " WHERE EMAIL='".$usuario."' AND PASSWORD='".$pass."'";
         try {
             $st = $conexion->prepare($query);
             $st->execute();
