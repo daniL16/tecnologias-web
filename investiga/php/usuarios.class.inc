@@ -65,25 +65,27 @@ class Usuarios extends DataObject {
         }
     }
 
-    public static function insertarUsuario($id, $nombre, $apellidos, $pass, $dir, $ciudad, $cp, $prov, $email, $dni, $visa, $cad) {
+    public static function nuevoMiembro($email, $nombre, $apellidos, $pass,$direct,$tlf,$url,$dep,$centro,$uni,$dir) {
+        $passwordHash = sha1($pass);
         $conexion = parent::conectar();
-        $sql = "INSERT INTO " . TABLA_USUARIOS . " VALUES (:id,:nombre,:apellidos,:pass,:dir,:ciudad,:cp,:prov,:email,:dni,:visa,:cad)";
+        $sql = "INSERT INTO " . TABLA_MIEMBROS . "(EMAIL,NOMBRE,APELLIDOS,PASSWORD,ES_DIRECTOR,TELEFONO,URL,DEPARTAMENTO,CENTRO,UNIVERSIDAD,DIRECCION) VALUES (:email,:nombre,:apellidos,:pass,:director,:tlf,:url,:dep,:cent,:univ,:dir)";
         $ok = false;
+        
+        
+        
         try {
             $st = $conexion->prepare($sql);
-
-            $st->bindValue(":id", $id, PDO::PARAM_STR);
+            $st->bindValue(":email", $email, PDO::PARAM_STR);
             $st->bindValue(":nombre", $nombre, PDO::PARAM_STR);
             $st->bindValue(":apellidos", $apellidos, PDO::PARAM_STR);
-            $st->bindValue(":pass", $pass, PDO::PARAM_STR);
+            $st->bindValue(":pass", $passwordHash, PDO::PARAM_STR);
+            $st->bindValue(":director", $direct, PDO::PARAM_STR);
+            $st->bindValue(":tlf", $tlf, PDO::PARAM_STR);
+            $st->bindValue(":url", $url, PDO::PARAM_STR);
+            $st->bindValue(":dep", $dep, PDO::PARAM_STR);
+            $st->bindValue(":cent", $centro, PDO::PARAM_STR);
+            $st->bindValue(":univ", $uni, PDO::PARAM_STR);
             $st->bindValue(":dir", $dir, PDO::PARAM_STR);
-            $st->bindValue(":ciudad", $ciudad, PDO::PARAM_STR);
-            $st->bindValue(":cp", $cp, PDO::PARAM_INT);
-            $st->bindValue(":prov", $prov, PDO::PARAM_STR);
-            $st->bindValue(":email", $email, PDO::PARAM_STR);
-            $st->bindValue(":dni", $dni, PDO::PARAM_STR);
-            $st->bindValue(":visa", $visa, PDO::PARAM_INT);
-            $st->bindValue(":cad", $cad, PDO::PARAM_STR);
             $st->execute();
             parent::desconectar($conexion);
             $ok = true;
@@ -96,7 +98,8 @@ class Usuarios extends DataObject {
 
     public static function login($usuario, $pass) {
         $conexion = parent::conectar();
-        $query = "SELECT * FROM " . TABLA_MIEMBROS . " WHERE EMAIL='".$usuario."' AND PASSWORD='".$pass."'";
+        $passwordHash = sha1($pass);
+        $query = "SELECT * FROM " . TABLA_MIEMBROS . " WHERE EMAIL='".$usuario."' AND PASSWORD='".$passwordHash."'";
         try {
             $st = $conexion->prepare($query);
             $st->execute();

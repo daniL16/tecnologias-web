@@ -10,12 +10,13 @@
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
         <form  id="registro" method=post action="" onsubmit="" >
+            <label>Email</label><input type="text" name="email"><br>
             <label>Nombre</label><input type="text" name="nombre"><br>
             <label>Apellidos</label><input type="text" name="apellidos"><br>
-            <label>Categoría</label><input type="text" name=""><br>
+            <label>Categoría</label><input type="text" name="cat"><br>
             <label>Director de grupo</label><input type="radio" name="director" value="si">Sí
   <input type="radio" name="director" value="no">No<br>
-            <label>Email</label><input type="text" name="email"><br>
+            
             <label>Contraseña</label><input type="password" name="pass"><br>
             <label>Telefono</label><input type="text" name="telefono"><br>
             <label>Url personal</label><input type="url" name="url"><br>
