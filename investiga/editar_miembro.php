@@ -3,13 +3,14 @@
     <meta charset="utf-8">
     <link rel = "stylesheet" type = "text/css" href = "./css/estilos.css" />
     <link rel="stylesheet" type="text/css" href="./css/formularios.css"/>
+    <script src="js/validacion.js"></script>
     <title>Grupo de Investigación</title>
 </head>
 <body>
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
-        <form  id="registro" method=post action="" onsubmit="" >
+        <form  id="registro" method=post action="" onsubmit="return validar();" >
             <label>Email</label><input type="text" name="email"><br>
             <label>Nombre</label><input type="text" name="nombre"><br>
             <label>Apellidos</label><input type="text" name="apellidos"><br>
