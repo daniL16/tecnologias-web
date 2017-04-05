@@ -1,5 +1,5 @@
 header {
-  background-color: beige;
+  background-color: lightgoldenrodyellow;
   height: 15%;  
 }
 
@@ -17,7 +17,7 @@ header {
 #nav{
   float: left;
   width: 20%;
-  background-color: beige;
+  background-color: dcd0c0;
   height: 100%;
 }
 
@@ -31,10 +31,12 @@ header {
 #contenido{
   width: 70%;
   float: left;
+  background-color: #f4f4f4f4;
+  height: 100%;
 }
 
 #pie{
   clear: both;
   padding: 10px;
-  background-color: beige;
+  background-color: #c0b283;
 }

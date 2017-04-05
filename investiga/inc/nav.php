@@ -17,6 +17,7 @@
             }
         }
         ?>
+        <li><a href="../doc/documentacion.pdf">Documentación</a></li>
         
     </ul>
 </aside>

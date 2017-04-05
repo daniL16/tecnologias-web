@@ -1,4 +1,4 @@
-function validar(){
+function validar_miembro(){
     console.log("Validando formulario");
     
     

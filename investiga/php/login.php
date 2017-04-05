@@ -14,7 +14,7 @@ if (isset($_POST["login"])) {
         $username = $_POST['user'];
         $password = $_POST['pass'];
         $login = Usuarios::login($username, $password);
-
+        // Tienes que comprobar si esta bloqueado.
         if ($login) {
             $_SESSION['usuario'] = $username; 
             $_SESSION['estado'] = 'Autenticado';
@@ -23,11 +23,13 @@ if (isset($_POST["login"])) {
         } else {
                 $message = "Nombre de usuario ó contraseña invalida!";
                 //header("Location: ../login_page.php");
-            }
+        }
     } else {
-        $message = "Todos los campos son requeridos!";
+         //header('Location:' . getenv('HTTP_REFERER'));
+         echo "<script language='javascript'>  alert('login incorrecto'); </script>";
+       
     }
     
-    if (!empty($message)) {echo "<p class=\"error\">" . "MESSAGE: ". $message . "</p>";} 
+    
 }
 ?>
