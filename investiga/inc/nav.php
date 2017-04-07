@@ -1,11 +1,11 @@
 <aside id="nav">
     <ul>
-        <li><a href="../index.php">Inicio</a></li>
-        <li><a href="../miembros.php">Miembros</a></li>
-        <li><a href="../publicaciones.php">Publicaciones</a></li>
-        <li><a href="../proyectos.php">Proyectos</a></li>
+        <li><a href="/~daniellg1617/investiga/index.php">Inicio</a></li>
+        <li><a href="/~daniellg1617/investiga/miembros.php">Miembros</a></li>
+        <li><a href="/~daniellg1617/investiga/publicaciones.php">Publicaciones</a></li>
+        <li><a href="/~daniellg1617/investiga/proyectos.php">Proyectos</a></li>
         <?php
-        session_start();
+        //session_start();
         if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado'){
             echo "<li><a href=>Añadir/editar publicación</a></li>";
             echo "<li><a href=>Añadir/editar proyecto</a></li>";
@@ -17,7 +17,7 @@
             }
         }
         ?>
-        <li><a href="../doc/documentacion.pdf">Documentación</a></li>
+        <li><a href="/~daniellg1617/doc/documentacion.pdf">Documentación</a></li>
         
     </ul>
 </aside>

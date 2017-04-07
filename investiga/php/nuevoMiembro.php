@@ -11,6 +11,6 @@ if($_POST['director'] == "si"){
 
 $ok=$nuevo->nuevoMiembro($_POST["email"],$_POST["nombre"],$_POST["apellidos"],$_POST["pass"],$direct,$_POST["telefono"],$_POST["url"],$_POST["dep"],$_POST["centro"],$_POST["uni"],$_POST["dir"]);
 if($ok){
-    header('Location:/index.php');
+    header('Location:~daniellg1617/investiga/index.php');
 }
 ?> 
