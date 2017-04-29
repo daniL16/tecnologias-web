@@ -1,0 +1,19 @@
+// Conexión a la BBDD
+$db = mysqli_connect("localhost","tweb","dejameentrar","world"); 
+if($db) {
+echo"<p>Conexión con éxito</p>";
+} 
+
+else{
+echo "<p>Error de conexión</p>";
+echo "<p>Código: ".mysqli_connect_errno()."</p>";
+echo "<p>Mensaje: ".mysqli_connect_error()."</p>"; 
+die("Adiós");
+} 
+// Establecer la codificación de los datos
+mysqli_set_charset($db,"utf8"); 
+
+
+
+
+$res = mysqli_query($db, "SELECT name,district,population FROM city WHERE countrycode='ESP'");

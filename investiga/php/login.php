@@ -2,34 +2,34 @@
 
 session_start();
 
-require_once('./usuarios.class.inc');
-
-if (isset($_SESSION["session_username"])) {
-    echo "Session is set";
-    //header("Location:/index.php");
-}
+require_once('db.php');
 
 if (isset($_POST["login"])) {
     if (!empty($_POST['user']) && !empty($_POST['pass'])) {
         $username = $_POST['user'];
         $password = $_POST['pass'];
-        $login = Usuarios::login($username, $password);
-        // Tienes que comprobar si esta bloqueado.
+        $db = DB_conexion();
+        $login = DB_login($db,$username,$password);
+        DB_desconexion($db);
+       
         if ($login) {
-            $_SESSION['usuario'] = $username; 
-            $_SESSION['estado'] = 'Autenticado';
-              
-            header('Location:' . getenv('HTTP_REFERER'));
-        } else {
-                $message = "Nombre de usuario ó contraseña invalida!";
-                //header("Location: ../login_page.php");
+                echo "LOGED";
+                $_SESSION['usuario'] = $username; 
+                $_SESSION['estado'] = 'Autenticado';
+                $_SESSION['admin'] = $login['admin'];
+                header('Location:' . getenv('HTTP_REFERER'));
+        }
+        else{
+            
+            echo "FAIL"; 
+            //header('Location:' . getenv('HTTP_REFERER')); 
         }
     } else {
          //header('Location:' . getenv('HTTP_REFERER'));
-         echo "<script language='javascript'>  alert('login incorrecto'); </script>";
+         //echo "<script language='javascript'>  alert('login incorrecto'); </script>";
        
     }
     
-    
-}
+  }
+
 ?>

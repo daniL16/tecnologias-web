@@ -2,7 +2,7 @@
 
 require_once ('datosObject.class.inc');
 
-class Usuarios extends DataObject {
+class Miembro extends DataObject {
 
     protected $datos = array(
         "NOMBRE" => "",
@@ -65,7 +65,36 @@ class Usuarios extends DataObject {
         }
     }
 
-   
+    public static function nuevoMiembro($email, $nombre, $apellidos, $pass,$direct,$tlf,$url,$dep,$centro,$uni,$dir) {
+        $passwordHash = sha1($pass);
+        $conexion = parent::conectar();
+        $sql = "INSERT INTO " . TABLA_MIEMBROS . "(EMAIL,NOMBRE,APELLIDOS,PASSWORD,ES_DIRECTOR,TELEFONO,URL,DEPARTAMENTO,CENTRO,UNIVERSIDAD,DIRECCION) VALUES (:email,:nombre,:apellidos,:pass,:director,:tlf,:url,:dep,:cent,:univ,:dir)";
+        $ok = false;
+        
+        
+        
+        try {
+            $st = $conexion->prepare($sql);
+            $st->bindValue(":email", $email, PDO::PARAM_STR);
+            $st->bindValue(":nombre", $nombre, PDO::PARAM_STR);
+            $st->bindValue(":apellidos", $apellidos, PDO::PARAM_STR);
+            $st->bindValue(":pass", $passwordHash, PDO::PARAM_STR);
+            $st->bindValue(":director", $direct, PDO::PARAM_STR);
+            $st->bindValue(":tlf", $tlf, PDO::PARAM_STR);
+            $st->bindValue(":url", $url, PDO::PARAM_STR);
+            $st->bindValue(":dep", $dep, PDO::PARAM_STR);
+            $st->bindValue(":cent", $centro, PDO::PARAM_STR);
+            $st->bindValue(":univ", $uni, PDO::PARAM_STR);
+            $st->bindValue(":dir", $dir, PDO::PARAM_STR);
+            $st->execute();
+            parent::desconectar($conexion);
+            $ok = true;
+        } catch (PDOException $e) {
+            parent::desconectar($conexion);
+            die("Consulta fallada: " . $e->getMessage());
+        }
+        return $ok;
+    }
 
     public static function login($usuario, $pass) {
         $conexion = parent::conectar();
