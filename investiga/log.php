@@ -9,7 +9,7 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
-   <p>LH NO FALLA!</p>
+<?php include 'php/list_log.php' ?>
     </article>
 <?php include 'inc/footer.html'?>
 </body>

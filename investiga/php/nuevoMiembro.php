@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once ('db.php');
    
 $nuevo = false;
@@ -26,10 +26,12 @@ $nuevo["foto"] = $_FILES["imágenes"]["tmp_name"][$clave];
 
 $db= DB_conexion();
 $ok = DB_addMiembro($db,$nuevo);
+DB_log($db,$_SESSION['usuario'],"Crear usuario ".$nuevo["email"]);
 DB_desconexion($db);
 
 if($ok){
-    header('Location:~daniellg1617/investiga/index.php');
+    //header('Location:~daniellg1617/investiga/index.php');
+    header('Location:/index.php');
 }
 else {
     echo "Ocurrió un error durante el proceso";

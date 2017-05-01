@@ -61,4 +61,56 @@ function DB_login($db,$user,$pass) {
     else
         return false;
 }
+ 
+function DB_getMiembros($db) {
+    $res = mysqli_query($db, "SELECT * FROM MIEMBROS");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+function DB_borrarMiembro($db,$id) {
+    mysqli_query($db, "DELETE FROM MIEMBROS WHERE EMAIL='$id'");
+    if (mysqli_affected_rows($db)==1)
+        return true;
+    else
+        return false;
+}
+
+function DB_log($db,$user,$action){
+    $hora= date ("h:i:s");
+    $fecha= date ("j/n/Y");
+    mysqli_query($db,"INSERT INTO LOG (usuario,fecha,hora,accion) VALUES ('{$user}','{$fecha}','{$hora}','{$action}')");
+}
+
+function DB_getLog($db){
+    $res = mysqli_query($db,"SELECT * FROM LOG");
+      if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
 ?>
