@@ -22,7 +22,17 @@ $nuevo["centro"] = $_POST["centro"];
 $nuevo["uni"] = $_POST["uni"];
 $nuevo["direccion"] = $_POST["dir"];
 $nuevo["categoria"] = $_POST["categoria"];
-$nuevo["foto"] = $_FILES["imágenes"]["tmp_name"][$clave];
+
+$nombrefoto=$_FILES['image'] ['name']; //esto es el nombre de la imagen
+$ruta=$_FILES['image'] ['tmp_name']; //se le asigna una nombre temporal que sera la ruta
+$destino="/img/".$nombrefoto; //esto es el destino en donde se guardara la foto
+$nuevo["foto"] = $destino;
+
+if (move_uploaded_file($ruta, $destino)){
+       echo "El archivo ha sido cargado correctamente.";
+    }else{
+       echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
+    } 
 
 $db= DB_conexion();
 $ok = DB_addMiembro($db,$nuevo);
@@ -31,7 +41,7 @@ DB_desconexion($db);
 
 if($ok){
     //header('Location:~daniellg1617/investiga/index.php');
-    header('Location:/index.php');
+    //header('Location:/index.php');
 }
 else {
     echo "Ocurrió un error durante el proceso";

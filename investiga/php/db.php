@@ -30,8 +30,8 @@ function DB_addMiembro($db,$datos) {
     if ($num>0)
         $info[] = 'Ya existe una usario con ese email';
     else {
-        $res = mysqli_query($db, "INSERT INTO MIEMBROS (email,nombre,apellidos,password,telefono,url,departamento,centro,universidad,direccion,es_director,categoria)
-                                  VALUES ('{$datos['email']}','{$datos['nombre']}','{$datos['apellidos']}','{$datos['pass']}','{$datos['telefono']}','{$datos['url']}','{$datos['depart']}','{$datos['centro']}','{$datos['uni']}','{$datos['direccion']}','{$datos['director']}','{$datos['categoria']}')");
+        $res = mysqli_query($db, "INSERT INTO MIEMBROS (email,nombre,apellidos,password,telefono,url,departamento,centro,universidad,direccion,es_director,categoria,foto)
+                                  VALUES ('{$datos['email']}','{$datos['nombre']}','{$datos['apellidos']}','{$datos['pass']}','{$datos['telefono']}','{$datos['url']}','{$datos['depart']}','{$datos['centro']}','{$datos['uni']}','{$datos['direccion']}','{$datos['director']}','{$datos['categoria']}','{$datos['foto']}')");
 
         if (!$res) {
             $info[] = 'Error en la consulta '.__FUNCTION__;

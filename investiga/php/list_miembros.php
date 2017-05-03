@@ -9,7 +9,7 @@
         #no quiero mostrar el usuario ADMIN 
         if ($miembro[ 'NOMBRE'] != 'ADMIN'){
         #aqui se obtiene el nombre de la foto
-            echo "<tr><td class='foto'>{$miembro["FOTO"]}</td>";
+            echo "<tr><td class='foto'><img src='../{$miembro['FOTO']}'></td>";
             echo "<td>{$miembro[ 'NOMBRE']} {$miembro[ 'APELLIDOS']}<BR>
                   {$miembro[ 'DEPARTAMENTO']}<BR>
                   {$miembro[ 'CENTRO']}<BR>

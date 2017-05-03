@@ -24,7 +24,7 @@
             <label>Centro</label><input type="text" name="centro"><br>
             <label>Universidad</label><input type="text" name="uni"><br>
             <label>Direccion</label><input type="text" name="dir"><br>
-            <label>Fotografia</label><input type="file" name="foto"><br>
+            <label>Fotografia</label><input type="file" name="image"><br>
             <input type="submit" name="reg" value="Nuevo miembro">
     </form>
         
