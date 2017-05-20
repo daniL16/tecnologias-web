@@ -115,7 +115,8 @@ function DB_getLog($db){
 }
 
 function DB_getPublicaciones($db,$filtros){
-    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES    ORDER BY FECHA DESC");
+    //TITULO = {$filtros['titulo']} AND AUTOR={$filtros['autor']}  
+    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES ORDER BY FECHA DESC");
     if ($res) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)
