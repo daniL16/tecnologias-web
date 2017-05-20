@@ -10,7 +10,7 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
-        <form  id="registro" method=post action="./php/nuevoMiembro.php" onsubmit="return validar_miembro();"  enctype="multipart/form-data"     >
+        <form  id="registro" method=post action="./php/nuevoMiembro.php" onsubmit="return validar_miembro();"  enctype="multipart/form-data"  >
             <label>Nombre</label><input type="text" name="nombre" id="nombre"><br>
             <label>Apellidos</label><input type="text" name="apellidos" id="apellidos"><br>
             <label>Categoría</label><input type="text" name="categoria" id="categoria"><br>

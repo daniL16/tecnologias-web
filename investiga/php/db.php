@@ -63,7 +63,7 @@ function DB_login($db,$user,$pass) {
 }
  
 function DB_getMiembros($db) {
-    $res = mysqli_query($db, "SELECT * FROM MIEMBROS");
+    $res = mysqli_query($db, "SELECT * FROM MIEMBROS ORDER BY NOMBRE ASC");
     if ($res) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)
@@ -113,4 +113,46 @@ function DB_getLog($db){
         $tabla = false;
     return $tabla;
 }
+
+function DB_getPublicaciones($db,$filtros){
+    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES    ORDER BY FECHA ASC");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+function DB_addMiembro($db,$datos) {
+    // Comprobar si ya existe una publicacion con el mismo DOI
+    $res = mysqli_query($db, "SELECT COUNT(*) FROM PUBLICACIONES WHERE DOI='{$datos['DOI']}'");
+    $num = mysqli_fetch_row($res)[0];
+    mysqli_free_result($res);
+    if ($num>0)
+        $info[] = 'Ya existe una publicacion registrada';
+    else {
+        $res = mysqli_query($db, "INSERT INTO PUBLICACIONES (DOI,TITULO,AUTORES,FECHA,ABSTRACT,PROYECTO,URL,KEYWORDS)
+                                  VALUES ('{$datos['DOI']}','{$datos['titulo']}','{$datos['autores']}','{$datos['fecha']}','{$datos['abstract']}','{$datos['proyecto']}','{$datos['url']}','{$datos['keywords']}')");
+
+        if (!$res) {
+            $info[] = 'Error en la consulta '.__FUNCTION__;
+            $info[] = mysqli_error($db);
+        }
+    }
+    if (isset($info))
+        return $info;
+    else
+        return true; // OK
+}
+
 ?>

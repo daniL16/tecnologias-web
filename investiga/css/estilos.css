@@ -7,7 +7,11 @@ header {
   width: 40%;
   float: left;
 }
-
+.logo{
+    width: 50px;
+    height: 50px;
+    float:left;
+}
 #login{
   padding: 10px;
   width: 45%;
@@ -24,6 +28,7 @@ header {
 #nav ul{
   list-style: none;
 }
+
 #nav a {
   text-decoration: none;
 }
@@ -32,9 +37,16 @@ header {
   width: 70%;
   float: left;
   background-color: #f4f4f4f4;
-  height: 100%;
+  height: -moz-fit-content;
 }
 
+#nuevo_miembro_button{
+    float:right;
+}
+
+.tabla_result{
+    padding: 30px;
+}
 #pie{
   clear: both;
   padding: 10px;

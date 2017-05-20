@@ -1,15 +1,15 @@
 
 <header>
     <section id="titulo">
-        <img src="">
-        <h1>LH16</h1>
+        <img src="../img/logo.jpeg" class="logo">
+        <h1>Grupo de Investigación</h1>
     </section>
     <section id="login">
      <?php
        session_start();
        if(!isset($_SESSION['usuario'])){
         echo "
-        <form action='./php/login.php' id='login_form' method='post'>
+        <form action='./php/login.php' id='login_form' method='POST'>
         <input type='text' name='user'>
         <input type='password' name='pass'>
         <input type='submit' name='login' value='Entrar'>

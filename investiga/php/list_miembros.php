@@ -3,8 +3,11 @@
     
     $db = DB_conexion();
     $miembros = DB_getMiembros($db);
-    
-    echo "<table>";
+    session_start();
+    if ($_SESSION['admin'])
+        echo"<input id='nuevo_miembro_button' type='submit' value='Nuevo Miembro' onclick = 'location=/registrar_miembro.php' />";
+
+    echo "<table class='tabla_result'>";
     foreach($miembros as $miembro){
         #no quiero mostrar el usuario ADMIN 
         if ($miembro[ 'NOMBRE'] != 'ADMIN'){
@@ -17,12 +20,14 @@
                   {$miembro[ 'DIRECCION']}<BR>
                   {$miembro[ 'TELEFONO']} <BR>
                 </td>";
+            if($_SESSION['admin']){
             echo "<td class='ciu_botones'><form action='$accion' method='POST'>
               <input type='hidden' name='id' value='{$miembro['EMAIL']}' />
               <input type='submit' name='accion' value='Editar' />
               <input type='submit' name='accion' value='Borrar' />
               </form></td>";
             echo '</tr>';
+            }
         }
     }
     echo "</table>";

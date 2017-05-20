@@ -9,7 +9,6 @@
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
-<input type="submit" value="Nuevo Miembro" onclick = "location='/registrar_miembro.php'"/>
     
 <?php 
     if (isset($_POST['accion']) && isset($_POST['id'])) {
