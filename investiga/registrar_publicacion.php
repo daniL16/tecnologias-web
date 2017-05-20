@@ -11,7 +11,7 @@
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
         <form  id="registro" method=post action="./php/nuevaPublicacion.php">
-            <label>Título</label><input type="text" name="titulo" id="titulo"><br>
+            <label>Título</label><input type="text" name="titulo"><br>
             <label>DOI</label><input type="text" name="DOI" id="DOI"><br>
             <label>Autores</label><input type="text" name="autores" id="autores"><br>
             <label>Fecha</label><input type="date" name="fecha" id="fecha"><br>

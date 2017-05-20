@@ -115,7 +115,7 @@ function DB_getLog($db){
 }
 
 function DB_getPublicaciones($db,$filtros){
-    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES    ORDER BY FECHA ASC");
+    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES    ORDER BY FECHA DESC");
     if ($res) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)
@@ -133,7 +133,7 @@ function DB_getPublicaciones($db,$filtros){
     return $tabla;
 }
 
-function DB_addMiembro($db,$datos) {
+function DB_addPublicacion($db,$datos) {
     // Comprobar si ya existe una publicacion con el mismo DOI
     $res = mysqli_query($db, "SELECT COUNT(*) FROM PUBLICACIONES WHERE DOI='{$datos['DOI']}'");
     $num = mysqli_fetch_row($res)[0];
@@ -154,5 +154,14 @@ function DB_addMiembro($db,$datos) {
     else
         return true; // OK
 }
+
+function DB_borrarPublicacion($db,$id) {
+    mysqli_query($db, "DELETE FROM PUBLICACIONES WHERE DOI='$id'");
+    if (mysqli_affected_rows($db)==1)
+        return true;
+    else
+        return false;
+}
+
 
 ?>

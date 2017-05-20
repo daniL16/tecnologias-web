@@ -5,7 +5,7 @@
     $miembros = DB_getMiembros($db);
     session_start();
     if ($_SESSION['admin'])
-        echo"<input id='nuevo_miembro_button' type='submit' value='Nuevo Miembro' onclick = 'location=/registrar_miembro.php' />";
+        echo"<form><input id='nuevo_miembro_button' type='submit' value='Nuevo Miembro' onclick = 'location = /registrar_miembro.php' /></form>";
 
     echo "<table class='tabla_result'>";
     foreach($miembros as $miembro){
