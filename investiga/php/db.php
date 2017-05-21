@@ -22,6 +22,24 @@ function DB_desconexion($db) {
     mysqli_close($db);
 }
 
+function DB_login($db,$user,$pass) {
+    $password = md5($pass);
+    $prep = mysqli_prepare($db, "SELECT ES_ADMIN,BLOQUEO FROM MIEMBROS WHERE EMAIL=? AND PASSWORD=?");
+    mysqli_stmt_bind_param($prep,'ss',$user,$password);
+    mysqli_stmt_execute($prep);
+    
+    // Obtengo el resultado de la consulta y el numero de filas(será 0 o 1)
+    $res = mysqli_stmt_get_result($prep);
+    $num = mysqli_num_rows($res);
+    // Compruebo que existe el usuario y que no esta bloqueado
+    if($num>0){
+        $login["admin"] = mysqli_fetch_row($res)[0];
+        return $login;
+    }
+    else
+        return false;
+}
+
 function DB_addMiembro($db,$datos) {
     // Comprobar si ya existe un usuario registrado con el mismo email
     $res = mysqli_query($db, "SELECT COUNT(*) FROM MIEMBROS WHERE email='{$datos['email']}'");
@@ -42,24 +60,6 @@ function DB_addMiembro($db,$datos) {
         return $info;
     else
         return true; // OK
-}
-
-function DB_login($db,$user,$pass) {
-    $password = md5($pass);
-    $prep = mysqli_prepare($db, "SELECT ES_ADMIN,BLOQUEO FROM MIEMBROS WHERE EMAIL=? AND PASSWORD=?");
-    mysqli_stmt_bind_param($prep,'ss',$user,$password);
-    mysqli_stmt_execute($prep);
-    
-    // Obtengo el resultado de la consulta y el numero de filas(será 0 o 1)
-    $res = mysqli_stmt_get_result($prep);
-    $num = mysqli_num_rows($res);
-    // Compruebo que existe el usuario y que no esta bloqueado
-    if($num>0){
-        $login["admin"] = mysqli_fetch_row($res)[0];
-        return $login;
-    }
-    else
-        return false;
 }
  
 function DB_getMiembros($db) {
@@ -164,5 +164,53 @@ function DB_borrarPublicacion($db,$id) {
         return false;
 }
 
+function DB_addProyecto($db,$datos) {
+    // Comprobar si ya existe un usuario registrado con el mismo email
+    $res = mysqli_query($db, "SELECT COUNT(*) FROM PROYECTOS WHERE CODIGO='{$datos['codigo']}'");
+    $num = mysqli_fetch_row($res)[0];
+    mysqli_free_result($res);
+    if ($num>0)
+        $info[] = 'Ya existe un proyecto con ese código';
+    else {
+        $res = mysqli_query($db, "INSERT INTO PROYECTOS (codigo,titulo,fecha_comienzo,fecha_fin,descripcion,entidades,cuantia,investigador_ppal,colaboradores,url)
+                                  VALUES ('{$datos['codigo']}','{$datos['titulo']}','{$datos['fecha_comienzo']}','{$datos['fecha_fin']}','{$datos['descripcion']}','{$datos['entidades']}','{$datos['cuantia']}','{$datos['investigador_ppal']}','{$datos['colaboradores']}','{$datos['url']}')");
 
+        if (!$res) {
+            $info[] = 'Error en la consulta '.__FUNCTION__;
+            $info[] = mysqli_error($db);
+        }
+    }
+    if (isset($info))
+        return $info;
+    else
+        return true; // OK
+}
+
+function DB_getProyectos($db) {
+    $res = mysqli_query($db, "SELECT * FROM PROYECTOS ORDER BY FECHA_FIN DESC");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+function DB_borrarProyecto($db,$id) {
+    mysqli_query($db, "DELETE FROM PROYECTOS WHERE CODIGO='$id'");
+    if (mysqli_affected_rows($db)==1)
+        return true;
+    else
+        return false;
+}
 ?>
+
