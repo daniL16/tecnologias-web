@@ -11,7 +11,7 @@
 <?php include 'inc/nav.php' ?>
 <?php include 'php/editar.php' ?>
 <article id="contenido">
- 
+<?php include 'php/list_miembros.php' ?>   
 <?php 
     if (isset($_POST['accion']) && isset($_POST['id'])) {
         switch ($_POST['accion']) {
@@ -29,7 +29,7 @@
         }
     }
 ?>
-<?php include 'php/list_miembros.php' ?>   
+
 </article>
 <?php include 'inc/footer.html'?>
 </body>

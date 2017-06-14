@@ -8,7 +8,7 @@ function FORM_editMiembro($datos) {
             <input type='hidden' name='email' value='{$dato["EMAIL"]}'/>
             <label>Nombre</label><input type='text' name='nombre' value='{$dato["NOMBRE"]}'><br>
             <label>Apellidos</label><input type='text' name='apellidos' value='{$dato["APELLIDOS"]}'><br>
-            <label>Categoría</label><input type='text' name='cat value='{$dato["CATEGORIA"]}'><br>
+            <label>Categoría</label><input type='text' name='categoria' value='{$dato["CATEGORIA"]}'><br>
             <label>Director de grupo</label><input type='radio' name='director' value='si'>Sí
             <input type='radio' name='director' value='no' checked>No<br>
             <label>Contraseña</label><input type='hidden' name='pass' value='{$dato["PASSWORD"]}'><br>
@@ -20,10 +20,10 @@ function FORM_editMiembro($datos) {
             <label>Direccion</label><input type='text' name='dir' value='{$dato["DIRECCIÓN"]}'><br>
             <label>Administrador</label><input type='radio' name='admin' value='si'>Sí
             <input type='radio' name='admin' value='no'>No<br><br>
-            <label>Bloqueado</label><input type='radio' name='director' value='si'>Sí
-            <input type='radio' name='director' value='no'>No<br><br>
-            <label>Miembro antiguo</label><input type='radio' name='director' value='si'>Sí
-            <input type='radio' name='director' value='no'>No<br><br>
+            <label>Bloqueado</label><input type='radio' name='block' value='si'>Sí
+            <input type='radio' name='block' value='no'>No<br><br>
+            <label>Miembro antiguo</label><input type='radio' name='old' value='si'>Sí
+            <input type='radio' name='old' value='no'>No<br><br>
             <input type='submit' name='reg' value='Editar'>
         </form>
       ";

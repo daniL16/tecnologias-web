@@ -100,7 +100,6 @@ function DB_getMiembro($db,$id){
 }
 
 function DB_updateMiembro($db,$datos){
- 
     $res = mysqli_query($db, "UPDATE MIEMBROS SET NOMBRE='{$datos['nombre']}',
                                           APELLIDOS='{$datos['apellidos']}',
                                           TELEFONO='{$datos['telefono']}',
@@ -111,8 +110,9 @@ function DB_updateMiembro($db,$datos){
                                           DIRECCION = '{$datos['direccion']}',
                                           ES_DIRECTOR ='{$datos['director']}',
                                           CATEGORIA= '{$datos['categoria']}',
-                                          ES_ADMIN = '{$datos['admin']}'
-                                          
+                                          ES_ADMIN = '{$datos['admin']}',
+                                          BLOQUEO = '{$datos['block']}',
+                                          MIEMBRO_ANTIGUO ='{$datos['old']}'
                                 WHERE EMAIL='{$datos['email']}'");
     if (!$res) {
         $info[] = 'Error al actualizar';
@@ -123,6 +123,7 @@ function DB_updateMiembro($db,$datos){
     else
         return true; // OK
 }
+
 function DB_borrarMiembro($db,$id) {
     mysqli_query($db, "DELETE FROM MIEMBROS WHERE EMAIL='$id'");
     if (mysqli_affected_rows($db)==1)

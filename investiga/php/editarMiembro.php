@@ -14,6 +14,16 @@ if($_POST['admin'] == "si"){
     $admin = 1;
 }
 
+$old = 0;
+if($_POST['old'] == "si"){
+    $old = 1;
+}
+
+$block = 0;
+if($_POST['block'] == "si"){
+    $block = 1;
+}
+
 $nuevo["email"] = $_POST["email"];
 $nuevo["nombre"] = $_POST["nombre"];
 $nuevo["apellidos"] = $_POST["apellidos"]; 
@@ -26,7 +36,8 @@ $nuevo["uni"] = $_POST["uni"];
 $nuevo["direccion"] = $_POST["dir"];
 $nuevo["categoria"] = $_POST["categoria"];
 $nuevo["admin"] = $admin;
-
+$nuevo["old"] = $old;
+$nuevo["block"] = $block;
 
 
 $db= DB_conexion();
