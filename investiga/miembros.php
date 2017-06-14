@@ -16,7 +16,7 @@
     if (isset($_POST['accion']) && isset($_POST['id'])) {
         switch ($_POST['accion']) {
             case 'Borrar':
-                $accion = '/php/borrarMiembro.php';
+                $accion = './php/borrarMiembro.php';
                 $id = $_POST['id'];
                 break;
             case 'Editar': // Presentar formulario y pedir confirmación

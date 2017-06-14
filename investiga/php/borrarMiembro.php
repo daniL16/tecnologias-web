@@ -10,6 +10,6 @@ if(DB_borrarMiembro($db,$_POST['id']))
 
 DB_log($db,$_SESSION['usuario'],"Borrar al usuario ".$_POST['id']);
 DB_desconexion($db);
-header('Location:../miembros.php')
+//header('Location:../miembros.php')
 ?>
 

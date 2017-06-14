@@ -15,7 +15,7 @@ $nuevo["url"] = $_POST["url"];
 $db= DB_conexion();
 $ok = false;
 $ok = DB_updatePublicacion($db,$nuevo);
-DB_log($db,$_SESSION['usuario'],"Editar publicación".$nuevo["DOI"]);
+DB_log($db,$_SESSION['usuario'],"Editar publicación ".$nuevo["DOI"]);
 DB_desconexion($db);
 
 if($ok){

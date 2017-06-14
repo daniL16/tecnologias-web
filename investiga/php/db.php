@@ -197,7 +197,6 @@ function DB_getPublicacion($db,$id){
 }
 
 function DB_updatePublicacion($db,$datos){
-       print_r($datos);
        $res = mysqli_query($db, "UPDATE PUBLICACIONES SET TITULO='{$datos['titulo']}',
                                           FECHA='{$datos['fecha']}',
                                           ABSTRACT='{$datos['abstract']}',
@@ -305,11 +304,52 @@ function DB_getProyecto($db,$id){
     return $tabla;
 }
 
+function DB_updateProyecto($db,$datos){
+           $res = mysqli_query($db, "UPDATE PROYECTOS SET TITULO='{$datos['titulo']}',
+                                          FECHA_COMIENZO='{$datos['fecha_com']}',
+                                          FECHA_FIN='{$datos['fecha_fin']}',
+                                          DESCRIPCION='{$datos['descripcion']}',
+                                          ENTIDADES='{$datos['entidades']}',
+                                          CUANTIA = '{$datos['cuantia']}',
+                                          INVESTIGADOR_PPAL = '{$datos['investigador_ppal']}',
+                                          COLABORADORES = '{$datos['colaboradores']}',
+                                          URL = '{$datos['url']}'
+                                WHERE CODIGO='{$datos['codigo']}'");
+    if (!$res) {
+        $info[] = 'Error al actualizar';
+        $info[] = mysqli_error($db);
+    }
+    if (isset($info))
+        return $info;
+    else
+        return true; // OK
+}
+
 function DB_borrarProyecto($db,$id) {
     mysqli_query($db, "DELETE FROM PROYECTOS WHERE CODIGO='$id'");
     if (mysqli_affected_rows($db)==1)
         return true;
     else
         return false;
+}
+
+// Obtiene las publicaciones asociadas a un proyecto.
+function DB_listPublicaciones($db,$id){
+    $res = mysqli_query($db, "SELECT TITULO FROM PUBLICACIONES WHERE PROYECTO='$id'");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
 }
 ?>
