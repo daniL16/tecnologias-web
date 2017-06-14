@@ -7,7 +7,7 @@
     $proyectos = DB_getProyectos($db);
 
     if (isset($_SESSION['usuario'])){
-        echo"<form action='./registrar_publicacion.php'><input id='nuevo_miembro_button' type='submit' value='Añadir nuevo proyecto' /></form>";
+        echo"<form action='./registrar_proyecto.php'><input id='nuevo_miembro_button' type='submit' value='Añadir nuevo proyecto' /></form>";
     }
     echo "<table class='tabla_result'>";
     foreach($proyectos as $proyecto){

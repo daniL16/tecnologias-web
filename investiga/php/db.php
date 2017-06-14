@@ -177,6 +177,42 @@ function DB_getPublicaciones($db,$filtros){
     return $tabla;
 }
 
+function DB_getPublicacion($db,$id){
+    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES WHERE DOI='$id'");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+function DB_updatePublicacion($db,$id){
+       $res = mysqli_query($db, "UPDATE PUBLICACIONES SET TITULO='{$datos['titulo']}',
+                                          FECHA='{$datos['fecha']}',
+                                          ABSTRACT='{$datos['abstract']}',
+                                          URL='{$datos['url']}',
+                                          KEYWORDS = '{$datos['keywords']}',
+                                          PROYECTO = '{$datos['proyecto']}',
+                                WHERE DOI='{$datos['doi']}'");
+    if (!$res) {
+        $info[] = 'Error al actualizar';
+        $info[] = mysqli_error($db);
+    }
+    if (isset($info))
+        return $info;
+    else
+        return true; // OK
+}
 function DB_addPublicacion($db,$datos) {
     // Comprobar si ya existe una publicacion con el mismo DOI
     $res = mysqli_query($db, "SELECT COUNT(*) FROM PUBLICACIONES WHERE DOI='{$datos['DOI']}'");
@@ -247,6 +283,27 @@ function DB_getProyectos($db) {
         $tabla = false;
     return $tabla;
 }
+
+function DB_getProyecto($db,$id){
+      $res = mysqli_query($db, "SELECT * FROM PROYECTOS WHERE CODIGO='$id'");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+
 
 function DB_borrarProyecto($db,$id) {
     mysqli_query($db, "DELETE FROM PROYECTOS WHERE CODIGO='$id'");

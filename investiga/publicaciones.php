@@ -6,13 +6,18 @@
 </head>
 <body>
 <?php include 'inc/header.php' ?>
-<?php include 'inc/nav.php' ?>    
+<?php include 'inc/nav.php' ?> 
+<?php include 'php/db.php' ?>
+<?php include 'php/editar.php' ?>
 <article id="contenido">
 <h4>Listado de publicaciones del grupo.</h4>
     <form class="formulario_busqueda" method="get">
     <label>Autor</label><input type="text" name="autor"><label>Título</label><input type="text" name="titulo">
     <br><input type="submit" value="Filtrar">
     </form>
+    
+<?php include './php/list_publicaciones.php'?>
+    
 <?php 
     if (isset($_POST['accion']) && isset($_POST['id'])) {
         switch ($_POST['accion']) {
@@ -21,20 +26,17 @@
                 $id = $_POST['id'];
                 break;
             case 'Editar': // Presentar formulario y pedir confirmación
-                $accion = '';
                 $id = $_POST['id'];
+                $db = DB_conexion();
+                $datos = DB_getPublicacion($db,$id);
+                FORM_editProyecto($datos);
                 break;
-        
-            case 'Modificar Datos': // Modificación confirmada
-                $accion = '';
-                $id = $_POST['id'];
-                break;
-            case 'Cancelar': break;
+    
         }
     }
 ?>
 
-<?php include './php/list_publicaciones.php'?>
+
 
 </article>
 <?php include 'inc/footer.html'?>

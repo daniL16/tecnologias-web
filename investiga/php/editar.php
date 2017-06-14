@@ -31,4 +31,46 @@ function FORM_editMiembro($datos) {
     }
 }
 
+function FORM_editProyecto($datos){
+    foreach($datos as $dato){
+        echo " <form  id='registro' method=post action='./php/editarProyecto.php'  >
+            <label>Título</label><input type='text' name='tit' id='tit value='{$dato["TITULO"]}''><br>
+            <input type='hidden' name='codigo' id='codigo' value='{$dato["CODIGO"]}'><br>
+            <label>Fecha comienzo</label><input type='date' name='fecha_com' value='{$dato["FECHA_COMIENZO"]}'><br>
+            <label>Fecha fin</label><input type='date' name='fecha_fin' id='fecha_fin' value='{$dato["FECHA_FIN"]}'><br>
+            <label>Entidades colaboradoras</label><input type='text' name='entidades' value='{$dato["ENTIDADES"]}'><br>
+            <label>Cuantia concedida</label><input type='text' name='cuantia' value='{$dato["CUANTIA"]}'><br>
+            <label>Url</label><input type='text' name='url' value='{$dato["URL"]}'><br>
+            <label>Investigador principal</label><input type='text' name='inv_ppal' value='{$dato["INVESTIGADOR_PPAL"]}'><br>
+            <label>Investigadores colaboradores</label><input type='text' name='inv_col' value='{$dato["COLABORADORES"]}'><br>
+            <label>Descripción</label><textarea name='desc' value='{$dato["DESCRIPCION"]}'></textarea><br>
+        
+            <input type='submit' name='reg' value='Editar'>
+             </form>
+            ";
+   
+    }
+}
+
+
+function FORM_editPublicacion($datos){
+    foreach($datos as $dato){
+        echo " <form  id='registro' method=post action='./php/editarProyecto.php'  >
+            <label>Título</label><input type='text' name='tit' id='tit' value='{$dato["TITULO"]}'><br>
+            <input type='hidden' name='codigo' id='codigo' value='{$dato["CODIGO"]}'><br>
+            <label>Fecha comienzo</label><input type='date' name='fecha_com' value='{$dato["FECHA_COMIENZO"]}'><br>
+            <label>Fecha fin</label><input type='date' name='fecha_fin' id='fecha_fin' value='{$dato["FECHA_FIN"]}'><br>
+            <label>Entidades colaboradoras</label><input type='text' name='entidades' value='{$dato["ENTIDADES"]}'><br>
+            <label>Cuantia concedida</label><input type='text' name='cuantia' value='{$dato["CUANTIA"]}'><br>
+            <label>Url</label><input type='text' name='url' value='{$dato["URL"]}'><br>
+            <label>Investigador principal</label><input type='text' name='inv_ppal' value='{$dato["INVESTIGADOR_PPAL"]}'><br>
+            <label>Investigadores colaboradores</label><input type='text' name='inv_col' value='{$dato["COLABORADORES"]}'><br>
+            <label>Descripción</label><textarea name='desc' value='{$dato["DESCRIPCION"]}'></textarea><br>
+        
+            <input type='submit' name='reg' value='Editar'>
+             </form>
+            ";
+   
+    }
+}
 ?>
