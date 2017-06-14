@@ -1,4 +1,3 @@
-
 <header>
     <section id="titulo">
         <img src="../img/logo.jpeg" class="logo">

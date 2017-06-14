@@ -7,9 +7,11 @@
 </head>
 <body>
 <?php include 'inc/header.php' ?>
-<?php include 'inc/nav.php' ?>    
+<?php include 'php/db.php' ?>
+<?php include 'inc/nav.php' ?>
+<?php include 'php/editar.php' ?>
 <article id="contenido">
-    
+ 
 <?php 
     if (isset($_POST['accion']) && isset($_POST['id'])) {
         switch ($_POST['accion']) {
@@ -18,19 +20,16 @@
                 $id = $_POST['id'];
                 break;
             case 'Editar': // Presentar formulario y pedir confirmación
-                $accion = '/php/editarMiembro.php';
                 $id = $_POST['id'];
-                break;
-        
-            case 'Modificar Datos': // Modificación confirmada
-                $accion = 'Modificar';
-                $id = $_POST['id'];
+                $db = DB_conexion();
+                $datos = DB_getMiembro($db,$id);
+                FORM_editMiembro($datos);
                 break;
             case 'Cancelar': break;
         }
     }
 ?>
-<?php include 'php/list_miembros.php' ?>
+<?php include 'php/list_miembros.php' ?>   
 </article>
 <?php include 'inc/footer.html'?>
 </body>

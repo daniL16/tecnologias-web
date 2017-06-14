@@ -68,6 +68,24 @@ function DB_getMiembros($db) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)
             // Si hay alguna tupla de respuesta
+           $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+function DB_getMiembro($db,$id){
+    $res = mysqli_query($db, "SELECT * FROM MIEMBROS WHERE EMAIL='$id'");
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
            
             $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
         else
@@ -81,6 +99,30 @@ function DB_getMiembros($db) {
     return $tabla;
 }
 
+function DB_updateMiembro($db,$datos){
+ 
+    $res = mysqli_query($db, "UPDATE MIEMBROS SET NOMBRE='{$datos['nombre']}',
+                                          APELLIDOS='{$datos['apellidos']}',
+                                          TELEFONO='{$datos['telefono']}',
+                                          URL='{$datos['url']}',
+                                          DEPARTAMENTO = '{$datos['depart']}',
+                                          CENTRO = '{$datos['centro']}',
+                                          UNIVERSIDAD = '{$datos['uni']}',
+                                          DIRECCION = '{$datos['direccion']}',
+                                          ES_DIRECTOR ='{$datos['director']}',
+                                          CATEGORIA= '{$datos['categoria']}',
+                                          ES_ADMIN = '{$datos['admin']}'
+                                          
+                                WHERE EMAIL='{$datos['email']}'");
+    if (!$res) {
+        $info[] = 'Error al actualizar';
+        $info[] = mysqli_error($db);
+    }
+    if (isset($info))
+        return $info;
+    else
+        return true; // OK
+}
 function DB_borrarMiembro($db,$id) {
     mysqli_query($db, "DELETE FROM MIEMBROS WHERE EMAIL='$id'");
     if (mysqli_affected_rows($db)==1)
@@ -213,4 +255,3 @@ function DB_borrarProyecto($db,$id) {
         return false;
 }
 ?>
-
