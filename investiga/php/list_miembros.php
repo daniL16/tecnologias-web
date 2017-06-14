@@ -17,8 +17,12 @@
                   {$miembro[ 'CENTRO']}<BR>
                   {$miembro[ 'UNIVERSIDAD']}<BR>
                   {$miembro[ 'DIRECCION']}<BR>
-                  {$miembro[ 'TELEFONO']} <BR>
-                </td>";
+                  {$miembro[ 'TELEFONO']} <BR>";
+            if($miembro['MIEMBRO_ANTIGUO'])
+                echo "Miembro antiguo";
+            echo "</td>";
+            
+            
             if($_SESSION['admin']){
             echo "<td class='ciu_botones'><form action='$accion' method='POST'>
               <input type='hidden' name='id' value='{$miembro['EMAIL']}' />

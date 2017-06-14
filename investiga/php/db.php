@@ -33,7 +33,9 @@ function DB_login($db,$user,$pass) {
     $num = mysqli_num_rows($res);
     // Compruebo que existe el usuario y que no esta bloqueado
     if($num>0){
-        $login["admin"] = mysqli_fetch_row($res)[0];
+        $res = mysqli_fetch_row($res);
+        $login["admin"] = $res[0]; 
+        $login["bloqueo"] = $res[1];
         return $login;
     }
     else

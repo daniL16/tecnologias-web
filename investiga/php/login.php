@@ -13,9 +13,12 @@ if (isset($_POST['login'])) {
         DB_desconexion($db);
        
         if ($login) {
-                $_SESSION['usuario'] = $username; 
-                $_SESSION['estado'] = 'Autenticado';
-                $_SESSION['admin'] = $login['admin'];
+          
+                if(!($login['bloqueo'])){
+                    $_SESSION['usuario'] = $username; 
+                    $_SESSION['estado'] = 'Autenticado';
+                    $_SESSION['admin'] = $login['admin'];
+                }
         }
         
     }
