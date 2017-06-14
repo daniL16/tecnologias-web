@@ -19,7 +19,7 @@ DB_log($db,$_SESSION['usuario'],"Editar publicación".$nuevo["DOI"]);
 DB_desconexion($db);
 
 if($ok){
-    header('Location:../publicaciones.php');
+ header('Location:../publicaciones.php');
 }
 else {
     echo "Ocurrió un error durante el proceso";

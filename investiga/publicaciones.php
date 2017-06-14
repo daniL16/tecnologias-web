@@ -7,8 +7,9 @@
 <body>
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?> 
-<?php include 'php/db.php' ?>
 <?php include 'php/editar.php' ?>
+<?php include 'php/db.php' ?>
+
 <article id="contenido">
 <h4>Listado de publicaciones del grupo.</h4>
     <form class="formulario_busqueda" method="get">
@@ -22,14 +23,14 @@
     if (isset($_POST['accion']) && isset($_POST['id'])) {
         switch ($_POST['accion']) {
             case 'Borrar':
-                $accion = './php/borrarPublicacion.php';
+                $accion = '/php/borrarPublicacion.php';
                 $id = $_POST['id'];
                 break;
             case 'Editar': // Presentar formulario y pedir confirmación
                 $id = $_POST['id'];
                 $db = DB_conexion();
                 $datos = DB_getPublicacion($db,$id);
-                FORM_editProyecto($datos);
+                FORM_editPublicacion($datos);
                 break;
     
         }

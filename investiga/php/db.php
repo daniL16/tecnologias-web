@@ -196,14 +196,16 @@ function DB_getPublicacion($db,$id){
     return $tabla;
 }
 
-function DB_updatePublicacion($db,$id){
+function DB_updatePublicacion($db,$datos){
+       print_r($datos);
        $res = mysqli_query($db, "UPDATE PUBLICACIONES SET TITULO='{$datos['titulo']}',
                                           FECHA='{$datos['fecha']}',
                                           ABSTRACT='{$datos['abstract']}',
                                           URL='{$datos['url']}',
                                           KEYWORDS = '{$datos['keywords']}',
                                           PROYECTO = '{$datos['proyecto']}',
-                                WHERE DOI='{$datos['doi']}'");
+                                          AUTORES = '{$datos['autores']}'
+                                WHERE DOI='{$datos['DOI']}'");
     if (!$res) {
         $info[] = 'Error al actualizar';
         $info[] = mysqli_error($db);
@@ -213,6 +215,7 @@ function DB_updatePublicacion($db,$id){
     else
         return true; // OK
 }
+
 function DB_addPublicacion($db,$datos) {
     // Comprobar si ya existe una publicacion con el mismo DOI
     $res = mysqli_query($db, "SELECT COUNT(*) FROM PUBLICACIONES WHERE DOI='{$datos['DOI']}'");
@@ -251,9 +254,8 @@ function DB_addProyecto($db,$datos) {
     if ($num>0)
         $info[] = 'Ya existe un proyecto con ese código';
     else {
-        $res = mysqli_query($db, "INSERT INTO PROYECTOS (codigo,titulo,fecha_comienzo,fecha_fin,descripcion,entidades,cuantia,investigador_ppal,colaboradores,url)
-                                  VALUES ('{$datos['codigo']}','{$datos['titulo']}','{$datos['fecha_comienzo']}','{$datos['fecha_fin']}','{$datos['descripcion']}','{$datos['entidades']}','{$datos['cuantia']}','{$datos['investigador_ppal']}','{$datos['colaboradores']}','{$datos['url']}')");
-
+        $res = mysqli_query($db, "INSERT INTO PROYECTOS (CODIGO,TITULO,FECHA_COMIENZO,FECHA_FIN,DESCRIPCION,ENTIDADES,CUANTIA,INVESTIGADOR_PPAL,COLABORADORES,URL)                                VALUES ('{$datos['codigo']}','{$datos['titulo']}','{$datos['fecha_com']}','{$datos['fecha_fin']}','{$datos['descripcion']}','{$datos['entidades']}','{$datos['cuantia']}','{$datos['investigador_ppal']}','{$datos['colaboradores']}','{$datos['url']}')");
+        
         if (!$res) {
             $info[] = 'Error en la consulta '.__FUNCTION__;
             $info[] = mysqli_error($db);
@@ -302,8 +304,6 @@ function DB_getProyecto($db,$id){
         $tabla = false;
     return $tabla;
 }
-
-
 
 function DB_borrarProyecto($db,$id) {
     mysqli_query($db, "DELETE FROM PROYECTOS WHERE CODIGO='$id'");
