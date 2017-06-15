@@ -1,12 +1,14 @@
 <?php
 
 require_once ('db.php');
-
+session_start();
+// Creamos el archivo donde se vuelca el backup
 $fecha=date("d-m-Y");
 $hora=date("h:m:s A");
-$file = fopen("backup_".$fecha."_".$date.".txt", "w");
+$file = fopen("../backup/backup_.$fecha.$hora.txt", "a+");
 
 $db = DB_conexion();
+
 // Obtener listado de tablas
 $tablas = array();
 $result = mysqli_query($db,'SHOW TABLES');
@@ -35,7 +37,10 @@ foreach ($tablas as $tab) {
         $salida .= ");\n";
         }
     $salida .= "\n\n\n";
-    echo $salida."<br>";
-    fclose($file);
+    fwrite($file, $salida);
+    
 }
+   fclose($file);
+   DB_log($db,$_SESSION['usuario'],"Realiza un backup de la BD ");
+   header('Location:../backup.php');
 ?>

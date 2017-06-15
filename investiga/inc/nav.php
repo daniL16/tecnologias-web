@@ -13,7 +13,7 @@
                echo "<li><a href=>Editar usuario</a></li>";
                echo "<li><a href='log.php'>Ver log</a></li>";
                echo "<li><a href='/php/backup.php'>Realizar un backup</a></li>";
-               echo "<li><a href=>Restaurar BD</a></li>" ;
+               echo "<li><a href='/php/restaurarBD.php'>Restaurar BD</a></li>" ;
             }
         }
         ?>
