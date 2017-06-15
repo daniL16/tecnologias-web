@@ -11,12 +11,16 @@
     }
     echo "<table class='tabla_result'>";
     foreach($publicaciones as $publicacion){
-            echo "<tr><td>{$publicacion[ 'DOI']} {$publicacion[ 'TITULO']}<BR>
+            echo "<tr>
+                  <td>{$publicacion[ 'DOI']} <strong>{$publicacion[ 'TITULO']}</strong><BR>
                   {$publicacion[ 'FECHA']}<BR>
+                  {$publicacion['AUTORES']}<BR>
                   {$publicacion[ 'CENTRO']}<BR>
+                  Keywords:{$publicacion['KEYWORDS']}<BR>
+                  <a href='{$publicacion[ 'URL']}'>URL</a><BR>
+                  Proyecto asociado:{$publicacion[ 'PROYECTO']} <BR>
                   {$publicacion[ 'ABSTRACT']}<BR>
-                  {$publicacion[ 'URL']}<BR>
-                  {$publicacion[ 'PROYECTO']} <BR>
+                 
                 </td>";
             if (isset($_SESSION['usuario'])){
             echo "<td class='ciu_botones'><form action='$accion' method='POST'>

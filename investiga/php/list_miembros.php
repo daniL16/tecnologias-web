@@ -10,17 +10,19 @@
     foreach($miembros as $miembro){
         #no quiero mostrar el usuario ADMIN 
         if ($miembro[ 'NOMBRE'] != 'ADMIN'){
-        #aqui se obtiene el nombre de la foto
-            echo "<tr><td class='foto'><img src='../{$miembro['FOTO']}'></td>";
-            echo "<td>{$miembro[ 'NOMBRE']} {$miembro[ 'APELLIDOS']}<BR>
+        #los miembros antiguos se identifican mediante una imagen
+            if($miembro['MIEMBRO_ANTIGUO'])
+                  echo "<tr><td class='foto'><img src='../img/antiguo'></td>";
+            else
+                echo "<tr><td class='foto'><img src='../{$miembro['FOTO']}'></td>";
+            echo "<td><strong>{$miembro[ 'NOMBRE']} {$miembro[ 'APELLIDOS']}</strong><BR>
+                  {$miembro[ 'EMAIL']}<BR>
                   {$miembro[ 'DEPARTAMENTO']}<BR>
                   {$miembro[ 'CENTRO']}<BR>
                   {$miembro[ 'UNIVERSIDAD']}<BR>
                   {$miembro[ 'DIRECCION']}<BR>
                   {$miembro[ 'TELEFONO']} <BR>";
-            if($miembro['MIEMBRO_ANTIGUO'])
-                echo "Miembro antiguo";
-            echo "</td>";
+           echo "</td>";
             
             
             if($_SESSION['admin']){

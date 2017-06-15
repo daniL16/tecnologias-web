@@ -13,15 +13,21 @@
     foreach($proyectos as $proyecto){
             $cod = $proyecto['CODIGO'];
             $publicaciones = DB_listPublicaciones($db,$cod);
-
-            echo "<tr><td>{$cod} {$proyecto[ 'TITULO']}<BR>
-                  {$proyecto[ 'FECHA_FIN']}<BR>
-                  {$proyecto[ 'CENTRO']}<BR>
+            
+            echo"<th></th><th>Publicaciones asociadas</th><th></th>";
+            
+            echo "<tr>
+            <td>{$cod} {$proyecto[ 'TITULO']}<BR>
+                  Fecha inicio:{$proyecto[ 'FECHA_COMIENZO']}<BR>
+                  Fecha fin:{$proyecto[ 'FECHA_FIN']}<BR>
+                  <a href={$proyecto[ 'URL']}>URL</a><BR>
+                  Investigador: {$proyecto[ 'INVESTIGADOR_PPAL']} <BR>
+                  Colaboradores: {$proyecto[ 'COLABORADORES']} <BR>
+                  Entidades:{$proyecto[ 'ENTIDADES']}<BR>
                   {$proyecto[ 'DESCRIPCION']}<BR>
-                  {$proyecto[ 'URL']}<BR>
-                  {$proyecto[ 'INVESTIGADOR_PPAL']} <BR>
-                  {$proyecto[ 'COLABORADORES']} <BR>
-                  Publicaciones:<br>";
+            </td>";
+            
+            echo "<td>";
                 
                 
             foreach($publicaciones as $publi){
@@ -29,6 +35,7 @@
                 echo "{$publi['TITULO']}<br>";
             }
             echo "</td>";
+            
             if (isset($_SESSION['usuario'])){
             echo "<td class='ciu_botones'><form action='$accion' method='POST'>
               <input type='hidden' name='id' value='{$proyecto['CODIGO']}' />

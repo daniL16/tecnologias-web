@@ -17,7 +17,7 @@ function FORM_editMiembro($datos) {
             <label>Departamento</label><input type='text' name='dep' value='{$dato["DEPARTAMENTO"]}'><br>
             <label>Centro</label><input type='text' name='centro' value='{$dato["CENTRO"]}'><br>
             <label>Universidad</label><input type='text' name='uni' value='{$dato["UNIVERSIDAD"]}'><br>
-            <label>Direccion</label><input type='text' name='dir' value='{$dato["DIRECCIÓN"]}'><br>
+            <label>Direccion</label><input type='text' name='dir' value='{$dato["DIRECCION"]}'><br>
             <label>Administrador</label><input type='radio' name='admin' value='si'>Sí
             <input type='radio' name='admin' value='no'>No<br><br>
             <label>Bloqueado</label><input type='radio' name='block' value='si'>Sí

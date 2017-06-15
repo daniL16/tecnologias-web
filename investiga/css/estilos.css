@@ -46,7 +46,15 @@ header {
 
 .tabla_result{
     padding: 30px;
+  width: 100%;
 }
+.tabla_result td{
+  padding-bottom: 40px;
+  border-bottom: black solid 1px;
+  width: 30%;
+  text-align: center;
+}
+
 #pie{
   clear: both;
   padding: 10px;

@@ -1,0 +1,585 @@
+ DROP TABLE ARTICULOS;
+
+CREATE TABLE `ARTICULOS` (
+  `NOMBRE_REVISTA` text NOT NULL,
+  `VOLUMEN` int(11) NOT NULL,
+  `PAGINAS` int(11) NOT NULL,
+  `DOI` varchar(32) NOT NULL,
+  PRIMARY KEY (`DOI`),
+  CONSTRAINT `ARTICULOS_ibfk_1` FOREIGN KEY (`DOI`) REFERENCES `PUBLICACIONES` (`DOI`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+ DROP TABLE CAPITULO_LIBRO;
+
+CREATE TABLE `CAPITULO_LIBRO` (
+  `TITULO` text NOT NULL,
+  `EDITORIAL` text NOT NULL,
+  `EDITOR` text NOT NULL,
+  `ISBN` text NOT NULL,
+  `DOI` varchar(32) NOT NULL,
+  PRIMARY KEY (`DOI`),
+  CONSTRAINT `CAPITULO_LIBRO_ibfk_1` FOREIGN KEY (`DOI`) REFERENCES `PUBLICACIONES` (`DOI`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+ DROP TABLE CONFERENCIAS;
+
+CREATE TABLE `CONFERENCIAS` (
+  `NOMBRE` text NOT NULL,
+  `LUGAR` text NOT NULL,
+  `RESERVA` text NOT NULL,
+  `DOI` varchar(32) NOT NULL,
+  PRIMARY KEY (`DOI`),
+  CONSTRAINT `CONFERENCIAS_ibfk_1` FOREIGN KEY (`DOI`) REFERENCES `PUBLICACIONES` (`DOI`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+ DROP TABLE LIBROS;
+
+CREATE TABLE `LIBROS` (
+  `EDITORIAL` text NOT NULL,
+  `EDITOR` text NOT NULL,
+  `ISBN` text NOT NULL,
+  `DOI` varchar(32) NOT NULL,
+  PRIMARY KEY (`DOI`),
+  CONSTRAINT `LIBROS_ibfk_1` FOREIGN KEY (`DOI`) REFERENCES `PUBLICACIONES` (`DOI`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+ DROP TABLE LOG;
+
+CREATE TABLE `LOG` (
+  `USUARIO` text NOT NULL,
+  `FECHA` text NOT NULL,
+  `HORA` text NOT NULL,
+  `ACCION` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO LOG VALUES("test6@lh.com","1/5/2017","06:59:32","Crear usuario test7@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","11:34:16","Crear usuario test8@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","3/5/2017","11:34:55","Borrar al usuario test8@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","3/5/2017","11:39:15","Borrar al usuario usuario2@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","3/5/2017","12:10:17","Crear usuario test9@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:12:44","Borrar al usuario test9@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:13:10","Crear usuario test7@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:19:51","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:21:01","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:21:22","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:25:39","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:28:25","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:28:28","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:28:37","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:29:01","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:29:14","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:31:48","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:32:13","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:33:16","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:35:20","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:36:49","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:37:46","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:38:23","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:38:38","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:40:42","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:42:04","Crear usuario test10@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:42:30","Crear usuario test11@lh.com");
+INSERT INTO LOG VALUES("","3/5/2017","12:44:05","Crear usuario test12@lh.com");
+INSERT INTO LOG VALUES("","20/5/2017","11:50:30","Borrar al usuario test12@lh.com");
+INSERT INTO LOG VALUES("","20/5/2017","11:50:34","Borrar al usuario usuario1@lh.com");
+INSERT INTO LOG VALUES("","20/5/2017","11:50:37","Borrar al usuario test10@lh.com");
+INSERT INTO LOG VALUES("","20/5/2017","11:50:41","Borrar al usuario test7@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:39:47","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:41:02","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:42:41","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:42:58","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:43:38","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:43:57","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:47:25","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:48:34","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:49:55","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","04:54:59","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:06:06","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:06:12","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:06:38","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:08:10","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:09:15","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:09:18","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:10:05","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","05:10:28","Borrar la publicacion ");
+INSERT INTO LOG VALUES("admin@lh.com","20/5/2017","11:57:45","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:43:40","Editar usuario ");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:50:21","Editar usuario ");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:58:08","Editar usuario ");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:00:20","Editar usuario ");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:01:37","Editar usuario ");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:05:53","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:06:25","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:07:17","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:07:38","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:07:48","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:08:13","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:34:45","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:34:56","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","02:35:12","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("test11@lh.com","14/6/2017","02:37:40","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","12:46:23","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","12:46:48","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","12:47:21","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","12:48:39","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","12:53:12","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:04:29","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:05:49","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:13:18","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:13:52","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:18:58","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:19:24","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:19:42","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:22:45","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:23:16","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:23:22","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:24:09","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:24:35","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:25:48","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:50:51","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","01:59:25","Borrar la publicacion TW2");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:14:05","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:21:31","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:23:08","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:23:15","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:23:42","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:49:14","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:51:44","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","04:59:23","Editar publicaciónTW1");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:07:09","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:08:55","Editar publicaciónTW2");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:28:12","Crear usuario test22@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:28:44","Crear usuario test22@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:39:50","Registrar proyecto");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:40:09","Registrar proyecto0002");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:41:15","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:41:51","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:43:59","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:44:32","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:45:52","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:45:56","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:48:31","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:48:38","Registrar proyecto");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:49:00","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:50:32","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:54:11","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","05:54:53","Registrar proyecto0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","06:37:05","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","06:45:06","Editar publicaciónTW2");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","07:41:26","Editar proyecto 0006");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","07:47:44","Editar proyecto 0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","07:49:05","Editar proyecto 0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","07:49:44","Editar proyecto 0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","07:52:26","Editar proyecto 0001");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","07:59:38","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","08:06:24","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","14/6/2017","08:09:50","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:27:36","Restaura la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:42:16","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:44:02","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:44:39","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:46:21","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:46:34","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:47:58","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:49:06","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:49:31","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:49:55","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:50:59","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:51:22","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:51:40","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:52:00","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:52:08","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:52:18","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:52:50","Realiza un backup de la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","10:53:26","Restaura la BD ");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:11:35","Registrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:12:05","Registrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:13:57","Registrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:14:14","Registrar proyecto 002");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:15:28","Registrar proyecto 002");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:15:43","Registrar proyecto 002");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:16:00","Registrar proyecto 002");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:16:52","Registrar proyecto 002");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:17:18","Registrar proyecto 003");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:17:44","Registrar proyecto 003");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:17:58","Registrar proyecto 003");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:18:19","Registrar proyecto 003");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:19:17","Registrar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:20:41","Registrar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:21:09","Registrar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:23:03","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:23:26","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:23:51","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:24:13","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","11:26:22","Registrar publicación");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:45:48","Borrar al usuario test22@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:57:46","Borrar la publicacion TW2");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:58:12","Borrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:58:31","Borrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:58:43","Borrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:58:47","Borrar proyecto 002");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:58:56","Borrar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","12:59:43","Borrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:08:17","Borrar proyecto 001");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:09:01","Borrar proyecto 003");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:09:13","Borrar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:30:45","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:41:49","Registrar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:52:26","Editar proyecto 006");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","01:58:45","Editar publicación TW1");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","02:01:17","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","02:03:47","Editar usuario test11@lh.com");
+INSERT INTO LOG VALUES("admin@lh.com","15/6/2017","02:04:30","Editar usuario test11@lh.com");
+
+
+
+ DROP TABLE MIEMBROS;
+
+CREATE TABLE `MIEMBROS` (
+  `NOMBRE` text NOT NULL,
+  `APELLIDOS` text NOT NULL,
+  `CATEGORIA` text,
+  `EMAIL` varchar(32) NOT NULL,
+  `PASSWORD` text NOT NULL,
+  `TELEFONO` text,
+  `URL` text,
+  `DEPARTAMENTO` text,
+  `CENTRO` text,
+  `UNIVERSIDAD` text,
+  `DIRECCION` text,
+  `FOTO` text,
+  `ES_DIRECTOR` tinyint(1) NOT NULL DEFAULT '0',
+  `ES_ADMIN` tinyint(1) NOT NULL DEFAULT '0',
+  `BLOQUEO` tinyint(1) NOT NULL DEFAULT '0',
+  `MIEMBRO_ANTIGUO` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`EMAIL`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO MIEMBROS VALUES("ADMIN","","","admin@lh.com","75ce8ce339a05eb15248235206bef738","","","","","","","","0","1","0","0");
+INSERT INTO MIEMBROS VALUES("Usuario","De Prueba","Full","test11@lh.com","75ce8ce339a05eb15248235206bef738","123456789","http://www.as.com","M.A.","Etsiit","ugr","C/Ronda","/img/desconocido.jpg","0","1","0","0");
+
+
+
+ DROP TABLE PROYECTOS;
+
+CREATE TABLE `PROYECTOS` (
+  `CODIGO` varchar(32) NOT NULL,
+  `TITULO` text NOT NULL,
+  `FECHA_COMIENZO` date DEFAULT NULL,
+  `FECHA_FIN` date DEFAULT NULL,
+  `DESCRIPCION` longtext NOT NULL,
+  `ENTIDADES` text,
+  `CUANTIA` int(11) DEFAULT '0',
+  `INVESTIGADOR_PPAL` varchar(32) DEFAULT NULL,
+  `COLABORADORES` text NOT NULL,
+  `URL` text,
+  PRIMARY KEY (`CODIGO`),
+  KEY `INVESTIGADOR_PPAL` (`INVESTIGADOR_PPAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO PROYECTOS VALUES("006","Proyecto6","2017-06-01","2017-06-14","","UGR","1200","dani@lh.com","","http://www.ugr.com");
+
+
+
+ DROP TABLE PUBLICACIONES;
+
+CREATE TABLE `PUBLICACIONES` (
+  `DOI` varchar(32) NOT NULL,
+  `TITULO` text NOT NULL,
+  `AUTORES` text NOT NULL,
+  `FECHA` date NOT NULL,
+  `ABSTRACT` longtext NOT NULL,
+  `KEYWORDS` text NOT NULL,
+  `URL` text NOT NULL,
+  `PROYECTO` varchar(32) NOT NULL,
+  PRIMARY KEY (`DOI`),
+  KEY `PROYECTO` (`PROYECTO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO PUBLICACIONES VALUES("TW1","Publicacion1","dani@lh.com","2017-12-01","Publicacion de prueba","test","http://www.ugr.com","000");
+INSERT INTO PUBLICACIONES VALUES("TW3","Publicacion 3","","2017-10-01","","","","003");
+INSERT INTO PUBLICACIONES VALUES("TW4","Publicacion 2313","dani@lh.com","2017-06-20","","","","006");
+
+
+
+ DROP TABLE pma__bookmark;
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+
+
+
+ DROP TABLE pma__central_columns;
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin,
+  PRIMARY KEY (`db_name`,`col_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+
+
+
+ DROP TABLE pma__column_info;
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+
+
+
+ DROP TABLE pma__designer_settings;
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+
+
+
+ DROP TABLE pma__export_templates;
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+
+
+
+ DROP TABLE pma__favorite;
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+
+
+
+ DROP TABLE pma__history;
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `sqlquery` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`,`db`,`table`,`timevalue`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+
+
+
+ DROP TABLE pma__navigationhiding;
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+
+
+
+ DROP TABLE pma__pdf_pages;
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  PRIMARY KEY (`page_nr`),
+  KEY `db_name` (`db_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+
+
+
+ DROP TABLE pma__recent;
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+INSERT INTO pma__recent VALUES("phpmyadmin","[{\"db\":\"phpmyadmin\",\"table\":\"MIEMBROS\"},{\"db\":\"phpmyadmin\",\"table\":\"PUBLICACIONES\"},{\"db\":\"phpmyadmin\",\"table\":\"PROYECTOS\"},{\"db\":\"phpmyadmin\",\"table\":\"LOG\"},{\"db\":\"phpmyadmin\",\"table\":\"LIBROS\"},{\"db\":\"phpmyadmin\",\"table\":\"CONFERENCIAS\"},{\"db\":\"phpmyadmin\",\"table\":\"CAPITULO_LIBRO\"},{\"db\":\"phpmyadmin\",\"table\":\"ARTICULOS\"}]");
+
+
+
+ DROP TABLE pma__relation;
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  KEY `foreign_field` (`foreign_db`,`foreign_table`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+
+
+
+ DROP TABLE pma__savedsearches;
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+
+
+
+ DROP TABLE pma__table_coords;
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
+  `x` float unsigned NOT NULL DEFAULT '0',
+  `y` float unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+
+
+
+ DROP TABLE pma__table_info;
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`db_name`,`table_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+
+
+
+ DROP TABLE pma__table_uiprefs;
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`username`,`db_name`,`table_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+
+
+
+ DROP TABLE pma__tracking;
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) unsigned NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin,
+  `data_sql` longtext COLLATE utf8_bin,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`db_name`,`table_name`,`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+
+
+
+ DROP TABLE pma__userconfig;
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `config_data` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+INSERT INTO pma__userconfig VALUES("phpmyadmin","2017-04-05 08:42:47","{\"collation_connection\":\"utf8mb4_unicode_ci\",\"lang\":\"es\"}");
+
+
+
+ DROP TABLE pma__usergroups;
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`usergroup`,`tab`,`allowed`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+
+
+
+ DROP TABLE pma__users;
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`username`,`usergroup`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+
+
+
