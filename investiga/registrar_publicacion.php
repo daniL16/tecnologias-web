@@ -14,7 +14,7 @@
             <label>Título</label><input type="text" name="titulo"><br>
             <label>DOI</label><input type="text" name="DOI" id="DOI"><br>
             <label>Autores</label><input type="text" name="autores" id="autores"><br>
-            <label>Fecha</label><input type="date" name="fecha" id="fecha"><br>
+            <label>Fecha</label><input type="date" class="fechas" name="fecha" id="fecha"><br>
             <label>Abstract</label><textarea id="abstract" name="abstract"></textarea><br>
             <label>keywords</label><input type="text" name="keywords" id="keywords"><br>
             <label>URL</label><input type="text" name="url" id="url"><br>

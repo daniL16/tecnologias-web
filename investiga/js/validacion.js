@@ -20,3 +20,11 @@ function validar_miembro(){
         return false;
     }
 }
+
+function validar_fechas(){
+    console.log("validando formulario");
+    if(RegExp.test(document.getElementsByClassName("fechas").value.length == 0)){
+        alert("Las fechas deben ser introducidas en el formato: aaaa/mm/dd");
+        return false;
+    }
+}

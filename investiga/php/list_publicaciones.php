@@ -5,7 +5,6 @@
     $db = DB_conexion();
     $filtros["autor"] = $_GET["autor"] ;
     $filtros["titulo"] = $_GET["titulo"];
-    
     $publicaciones = DB_getPublicaciones($db,$filtros);
     if (isset($_SESSION['usuario'])){
         echo"<form action='./registrar_publicacion.php'><input id='nuevo_miembro_button' type='submit' value='Añadir nueva publicacion' /></form>";

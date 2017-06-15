@@ -160,8 +160,18 @@ function DB_getLog($db){
 }
 
 function DB_getPublicaciones($db,$filtros){
-    //TITULO = {$filtros['titulo']} AND AUTOR={$filtros['autor']}  
-    $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES ORDER BY FECHA DESC");
+    $tit = $filtros['titulo'] ;
+    $aut = $filtros['autor']  ;
+    
+    if ($tit and $aut)
+        $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES WHERE TITULO='{$tit}' AND AUTORES='{$aut}' ORDER BY FECHA DESC");
+    elseif($tit)
+        $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES WHERE TITULO='{$tit}' ORDER BY FECHA DESC");
+    elseif($aut)
+          $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES WHERE AUTORES='{$aut}' ORDER BY FECHA DESC");
+    else
+         $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES ORDER BY FECHA DESC");
+        
     if ($res) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)
