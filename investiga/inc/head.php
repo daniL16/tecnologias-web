@@ -7,8 +7,9 @@
     <title>Grupo de Investigación</title>
 </head>
     
-<?php include 'php/db.php' ?>
-<?php include 'php/editar.php' ?>
+<?php include '/php/db.php' ?>
+<?php include '/php/editar.php' ?>
+<?php include '/php/borrar.php' ?>
 
 
     

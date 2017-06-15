@@ -52,7 +52,6 @@ function FORM_editProyecto($datos){
     }
 }
 
-
 function FORM_editPublicacion($datos){
     foreach($datos as $dato){
         echo"
@@ -71,4 +70,5 @@ function FORM_editPublicacion($datos){
    
     }
 }
+
 ?>

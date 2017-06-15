@@ -364,4 +364,11 @@ function DB_listPublicaciones($db,$id){
         $tabla = false;
     return $tabla;
 }
+
+/* Antes de borrar un proyecto busca las publiciones que referencian a dicho
+   proyecto y elimina la referencia*/
+function DB_quitarPublicacionesAsociados($db,$id){
+     $res = mysqli_query($db, "UPDATE PUBLICACIONES SET PROYECTO=NULL
+                                WHERE PROYECTO='{$id}'");
+}
 ?>
