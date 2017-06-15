@@ -1,11 +1,4 @@
-<html>
-<head lang="es">
-    <meta charset="utf-8">
-    <link rel = "stylesheet" type = "text/css" href = "./css/estilos.css" />
-    <link rel="stylesheet" type="text/css" href="./css/formularios.css"/>
-    <script src="js/validacion.js"></script>
-    <title>Grupo de Investigación</title>
-</head>
+<?php include 'inc/head.php' ?>
 <body>
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    

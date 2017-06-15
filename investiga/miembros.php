@@ -1,15 +1,8 @@
-<html>
-<head lang="es">
-    <meta charset="utf-8">
-    <link rel = "stylesheet" type = "text/css" href = "./css/estilos.css" />
-    <link rel = "stylesheet" type = "text/css" href = "./css/ficha.css" />
-    <title>Grupo de Investigación</title>
-</head>
+<?php include 'inc/head.php' ?>
 <body>
 <?php include 'inc/header.php' ?>
-<?php include 'php/db.php' ?>
 <?php include 'inc/nav.php' ?>
-<?php include 'php/editar.php' ?>
+
 <article id="contenido">
 <?php include 'php/list_miembros.php' ?>   
 <?php 

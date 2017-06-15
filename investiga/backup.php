@@ -1,10 +1,5 @@
-<html>
-<head lang="es">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel = "stylesheet" type = "text/css" href = "./css/estilos.css" />
-    <title>Grupo de Investigación</title>
-</head>
+<?php include 'inc/head.php' ?>
+
 <body>
 <?php include 'inc/header.php' ?>
 <?php include 'inc/nav.php' ?>    
