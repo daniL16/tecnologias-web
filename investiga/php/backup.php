@@ -5,7 +5,7 @@ session_start();
 // Creamos el archivo donde se vuelca el backup
 $fecha=date("d-m-Y");
 $hora=date("h:m:s A");
-$file = fopen("../backup/backup_.$fecha.$hora.txt", "a+");
+$file = fopen("../backup/backup_.$fecha.$hora.txt", "w+");
 
 $db = DB_conexion();
 
@@ -15,9 +15,12 @@ $result = mysqli_query($db,'SHOW TABLES');
 while ($row = mysqli_fetch_row($result))
     $tablas[] = $row[0];
 
+
 // Salvar cada tabla
 $salida = '';
 foreach ($tablas as $tab) {
+    $salida = ' ';
+
     $result = mysqli_query($db,'SELECT * FROM '.$tab);
     $num = mysqli_num_fields($result);
     $salida .= 'DROP TABLE '.$tab.';';
@@ -38,7 +41,6 @@ foreach ($tablas as $tab) {
         }
     $salida .= "\n\n\n";
     fwrite($file, $salida);
-    
 }
    fclose($file);
    DB_log($db,$_SESSION['usuario'],"Realiza un backup de la BD ");

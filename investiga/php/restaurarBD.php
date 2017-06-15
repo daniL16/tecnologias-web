@@ -18,7 +18,6 @@ $queries = explode(';',$sql);
 
 // Ejecutamos cada sentencia
 foreach ($queries as $q) {
-    echo $q;
     if (!mysqli_query($db,$q)) 
         $error .= mysqli_error($db);
 }
