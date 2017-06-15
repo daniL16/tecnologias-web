@@ -9,7 +9,7 @@
 <h4>Listado de publicaciones del grupo.</h4>
     <form class="formulario_busqueda" method="get">
     <label>Autor</label><input type="text" name="autor"><label>Título</label><input type="text" name="titulo">
-    <br><input type="submit" value="Filtrar">
+    <input type="submit" value="Filtrar">
     </form>
     
 <?php include './php/list_publicaciones.php'?>
