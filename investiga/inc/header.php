@@ -9,8 +9,8 @@
        if(!isset($_SESSION['usuario'])){
         echo "
         <form action='./php/login.php' id='login_form' method='POST'>
-        <input type='text' name='user'>
-        <input type='password' name='pass'>
+        <input class='log' type='text' name='user'>
+        <input class='log' type='password' name='pass'>
         <input type='submit' name='login' value='Entrar'>
     </form>";
        }
