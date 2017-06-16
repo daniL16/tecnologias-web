@@ -16,12 +16,7 @@ foreach ($tablas as $tab) {
         echo $q;
     }
 
-
-
-
-
-
-
-
+DB_desconexion($db);
+header('Location:./');
 
 ?>

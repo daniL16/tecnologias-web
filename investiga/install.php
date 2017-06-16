@@ -1,6 +1,21 @@
 #copiar archivos
+
 #credenciales
-#base de datos
+<?php
+
+    
+    $f = fopen("./php/credenciales_test.php","w+");
+    /*//pillar entradas
+    fwrite($f,"<?php define('DB_HOST','{$host}');
+    define('DB_DATABASE','{$database}'); 
+    define('DB_USER', '{$user}' ); 
+    define('DB_PASSWD', '{$pass}' );
+    ?>";
+    fclose($f);*/
+?>
+
+
+
 <?php
 
 include './php/db.php';
@@ -23,4 +38,6 @@ foreach ($queries as $q) {
 }
 
 mysqli_query($db,'SET FOREIGN_KEY_CHECKS=1');
+DB_desconexion($db);
 header('Location:./index.php');
+?>

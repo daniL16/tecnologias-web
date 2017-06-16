@@ -7,13 +7,13 @@
         <?php
         //session_start();
         if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado'){
-            echo "<li><a href=>Añadir/editar publicación</a></li>";
-            echo "<li><a href=>Añadir/editar proyecto</a></li>";
+            echo "<li><a href='/~daniellg1617/investiga/registrar_publicacion.php'>Añadir publicación</a></li>";
+            echo "<li><a href='/~daniellg1617/investiga/registrar_proyecto.php'>Añadir proyecto</a></li>";
             if($_SESSION['admin']){
-               echo "<li><a href=>Editar usuario</a></li>";
-               echo "<li><a href='log.php'>Ver log</a></li>";
-               echo "<li><a href='/php/backup.php'>Realizar un backup</a></li>";
-               echo "<li><a href='/php/restaurarBD.php'>Restaurar BD</a></li>" ;
+               echo "<li><a href='/~daniellg1617/investiga/miembros.php'>Editar usuario</a></li>";
+               echo "<li><a href='/~daniellg1617/investiga/log.php'>Ver log</a></li>";
+               echo "<li><a href='/~daniellg1617/investiga/php/backup.php'>Realizar un backup</a></li>";
+               echo "<li><a href='/~daniellg1617/investiga/php/restaurarBD.php'>Restaurar BD</a></li>" ;
             }
         }
         ?>

@@ -371,4 +371,20 @@ function DB_quitarPublicacionesAsociados($db,$id){
      $res = mysqli_query($db, "UPDATE PUBLICACIONES SET PROYECTO='NULL'
                                 WHERE PROYECTO='{$id}'");
 }
+
+/* Antes de borrar un miembro busca los proyectos que referencian a dicho
+   miembro y elimina la referencia*/
+function DB_quitarProyectosAsociados($db,$id){
+     $res = mysqli_query($db, "UPDATE PROYECTOS SET INVESTIGADOR_PPAL='NULL'
+                                WHERE INVESTIGADOR_PPAL='{$id}'");
+}
+
+//Obtener numero de filas de LOG
+function DB_getNumLogs($db){
+    $res = mysqli_query($db, "SELECT COUNT(*) FROM LOG");
+    $num = mysqli_fetch_row($res)[0];
+    mysqli_free_result($res);
+    return $num;
+}
+/~daniellg1617/investiga/index.php
 ?>

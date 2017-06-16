@@ -3,7 +3,8 @@
     
     $db = DB_conexion();
     $logs = DB_getLog($db);
-    
+    $num_rows=DB_getNumLogs($db);
+
     echo "<table><tr><th>Usuario</th><th>Acción</th><th>Fecha</th><th>Hora</th>";
     foreach($logs as $v){
         

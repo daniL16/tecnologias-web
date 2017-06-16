@@ -14,7 +14,7 @@
         switch ($_POST['accion']) {
             case 'Borrar':
                 $id = $_POST['id'];
-                //borrarMiembro($id);
+                borrarMiembro($id);
                 break;
             case 'Editar': // Presentar formulario y pedir confirmación
                 $id = $_POST['id'];

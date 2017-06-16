@@ -3,6 +3,7 @@
 require_once('db.php');
 
 function borrarPublicacion($id){
+    session_start();
     $db = DB_conexion();
     DB_borrarPublicacion($db,$id);
     DB_log($db,$_SESSION['usuario'],"Borrar la publicacion ".$id);
@@ -23,6 +24,7 @@ function borrarProyecto($id){
 function borrarMiembro($id){
     session_start();
     $db = DB_conexion();
+    DB_quitarProyectosAsociados($db,$id);
     DB_borrarMiembro($db,$id);
     DB_log($db,$_SESSION['usuario'],"Borrar al usuario ".$id);
     DB_desconexion($db);
