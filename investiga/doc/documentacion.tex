@@ -120,7 +120,23 @@ Las tablas son las siguientes:
 	\item Miembros.
 	\item Proyectos.
 	\item Publicaciones.
-	\item Log.
+	\item Log
 \end{itemize}
 \section{Aspectos relevantes del desarrollo.}
+\subsection{HTML y CSS.}
+\subsection{PHP.}
+En la carpeta \emph{\/php} se encuentran los archivos que realizan los procedimientos PHP. A continuacion se detallan dichos archivos:
+\begin{itemize}
+	\item borrar.php
+	\item editar.php. Muestra los formularios de edición.
+	\item backup.php. Realiza un backup de la base de datos y guarda las sentencias SQL en un archivo cuyo nombre se forma con la fecha y hora actuales. 
+	\item restaurarBD.php. Lee y ejecuta las sentencias SQL del último archivo de backup para restaurar la base de datos. 
+	\item db.php. Contiene las funciones que realizan llamadas a la base de datos.
+	\item nuevoMiembro.php, nuevoProyecto.php, nuevaPublicacion.php. Obtienen los datos de los formularios correspondientes y realizan una llamada a la base de datos.
+	\item editarMiembro.php,editarProyecto.php,editarPublicacion.php. Obtienen los datos de los formularios correspondientes y realizan una llamada a la base de datos.
+	\item borrarMiembro.php,borrarPublicacion.php, borrarProyecto.php
+    \item listMiembros.php,listProyectos.php,listPublicaciones.php, listLog.php. Obtienen los datos almacenados en la base de datos y los listan añadiendo cuando es posible los botones que posibilitan la edición y el borrado.
+    \item login.php,logout.php. Gestionan el login en el sistema mediante el uso de sesiones.
+	
+\end{itemize}
 \end{document}
