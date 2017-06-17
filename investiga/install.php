@@ -25,9 +25,7 @@ $db = DB_conexion();
 mysqli_query($db,'SET FOREIGN_KEY_CHECKS=0');
 $error = '';
 
-//Obtengo el último backup realizado
-
-//Obtenemos las sentencias sql
+//Obtenemos las sentencias sql para crear las tablas
 $sql = file_get_contents('./backup/createbd.txt');
 $queries = explode(';',$sql);
 

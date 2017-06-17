@@ -25,14 +25,15 @@ $nuevo["categoria"] = $_POST["categoria"];
 
 $nombrefoto=$_FILES['image'] ['name']; //esto es el nombre de la imagen
 $ruta=$_FILES['image'] ['tmp_name']; //se le asigna una nombre temporal que sera la ruta
-$destino="/img/".$nombrefoto; //esto es el destino en donde se guardara la foto
+// si no se especifica foto, se le asigna una por defecto
+if($nombrefoto == ''){
+    $destino="/img/desconocido.jpg";
+    move_uploaded_file($ruta, $destino);
+}
+else
+    $destino="/img/".$nombrefoto; //esto es el destino en donde se guardara la foto
 $nuevo["foto"] = $destino;
 
-if (move_uploaded_file($ruta, $destino)){
-       echo "El archivo ha sido cargado correctamente.";
-    }else{
-       echo "Ocurrió algún error al subir el fichero. No pudo guardarse.";
-    } 
 
 $db= DB_conexion();
 $ok = DB_addMiembro($db,$nuevo);

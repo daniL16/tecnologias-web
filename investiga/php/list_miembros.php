@@ -12,7 +12,7 @@
         if ($miembro[ 'NOMBRE'] != 'ADMIN'){
         #los miembros antiguos se identifican mediante una imagen
             if($miembro['MIEMBRO_ANTIGUO'])
-                  echo "<tr><td class='foto'><img src='../img/antiguo'></td>";
+                  echo "<tr><td class='foto'><img src='../img/old.jpeg'></td>";
             else
                 echo "<tr><td class='foto'><img src='../{$miembro['FOTO']}'></td>";
             echo "<td><strong>{$miembro[ 'NOMBRE']} {$miembro[ 'APELLIDOS']}</strong><BR>

@@ -386,5 +386,5 @@ function DB_getNumLogs($db){
     mysqli_free_result($res);
     return $num;
 }
-/~daniellg1617/investiga/index.php
+
 ?>
