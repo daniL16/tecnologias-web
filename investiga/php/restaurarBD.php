@@ -21,7 +21,7 @@ foreach ($queries as $q) {
     if (!mysqli_query($db,$q)) 
         $error .= mysqli_error($db);
 }
-
+fclose($f);
 mysqli_query($db,'SET FOREIGN_KEY_CHECKS=1');
 DB_log($db,$_SESSION['usuario'],"Restaura la BD ");
 header('Location:../backup.php');

@@ -28,10 +28,11 @@ $ruta=$_FILES['image'] ['tmp_name']; //se le asigna una nombre temporal que sera
 // si no se especifica foto, se le asigna una por defecto
 if($nombrefoto == ''){
     $destino="/img/desconocido.jpg";
+}
+else{
+    $destino="/img/users/".$nombrefoto; //esto es el destino en donde se guardara la foto
     move_uploaded_file($ruta, $destino);
 }
-else
-    $destino="/img/".$nombrefoto; //esto es el destino en donde se guardara la foto
 $nuevo["foto"] = $destino;
 
 

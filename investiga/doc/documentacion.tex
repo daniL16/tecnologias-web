@@ -105,7 +105,8 @@
 	\maketitle
 \section{Manual de usuario.}
 \subsection{Instalación.}
-Mediante el archivo \emph{/install.php} se puede crear la base de datos necesaria para el funcionamiento de la aplicación. Dicho archivo obtiene las sentencias SQL para crear las tablas( que se encuentran en el archivo \emph{/backup/createbd.txt}) y las ejecuta.
+La instalación se lleva a cabo mediante el archivo \emph{/install.php}. En primer lugar, se obtienen las credenciales de la BD mediante un formulario, una vez tenemos dichas credenciales se crea el archivo de credenciales. A continuación, se crean las carpetas que contienen los archivos de backup y las imágenes de los usuarios. Finalmente, se crea la base de datos necesaria para el funcionamiento de la aplicación.
+
 Mediante el archivo \emph{/uninstall.php} se puede borrar la base de datos y los archivos de backup e imágenes guardados.
 \subsection{Funcionamiento de la aplicación}Hay 2 usuarios creados para poder probar la aplicación: $admin@lh.com$ y $dani@lh.com$ siendo sus contraseñas $admin$ y $dani$ respectivamente. 
 \subsubsection{Miembros.} La pestaña Miembros de la barra de navegación muestra la lista de integrantes del grupo(el usuario admin no se muestra el la lista). Los miembros antiguos del grupo se identifican con una imagen distintiva en su perfil. 

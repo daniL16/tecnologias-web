@@ -15,7 +15,21 @@ foreach ($tablas as $tab) {
         $q .= 'DROP TABLE '.$tab.';';
         mysqli_query($db,$q);
 }
-// Borrar archivos de backup e imagenes
+
+
+//Borrar archivos de backup e imagenes
+
+$d = dir('./backup');
+$f = $d->read();
+unlink($f);
+//Borra el directorio
+rmdir('./backup');
+
+
+$img = dir('./img/users');
+// recorrer y borrar 
+rmdir('./img/users');
+
 DB_desconexion($db);
 
 header('Location:./');

@@ -5,7 +5,7 @@
     $logs = DB_getLog($db);
     $num_rows=DB_getNumLogs($db);
 
-    echo "<table><tr><th>Usuario</th><th>Acción</th><th>Fecha</th><th>Hora</th>";
+    echo "<table class='tabla_result'><tr><th>Usuario</th><th>Acción</th><th>Fecha</th><th>Hora</th>";
     foreach($logs as $v){
         
         echo "<tr><td class=''>{$v['USUARIO']}</td>";
