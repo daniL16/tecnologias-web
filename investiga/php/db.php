@@ -1,6 +1,6 @@
 <?php
 
-require_once('credenciales_local.php');
+require_once('credenciales.php');
 
 // Conexión a la BBDD
 function DB_conexion() {
@@ -159,6 +159,29 @@ function DB_getLog($db){
     return $tabla;
 }
 
+function DB_getAllPublicaciones($db){
+  
+         $res = mysqli_query($db, "SELECT * FROM PUBLICACIONES ORDER BY FECHA DESC");
+        
+    if ($res) {
+        // Si no hay error
+        if (mysqli_num_rows($res)>0)
+            // Si hay alguna tupla de respuesta
+           
+            $tabla = mysqli_fetch_all($res,MYSQLI_ASSOC);
+        else
+            // No hay resultados para la consulta
+            $tabla = [];
+            mysqli_free_result($res); // Liberar memoria de la consulta
+    } 
+    else
+    // Error en la consulta
+        $tabla = false;
+    return $tabla;
+}
+
+
+// Busqueda filtrada de publicaciones 
 function DB_getPublicaciones($db,$filtros){
     $tit = $filtros['titulo'] ;
     $aut = $filtros['autor']  ;

@@ -47,7 +47,7 @@ DB_desconexion($db);
 
 if($ok){
     //header('Location:~daniellg1617/investiga/index.php');
-    header('Location:/miembros.php');
+    header('Location:../miembros.php');
 }
 else {
     echo "Ocurrió un error durante el proceso";

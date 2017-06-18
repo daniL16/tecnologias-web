@@ -11,7 +11,7 @@ function FORM_editMiembro($datos) {
             <label>Categoría</label><input type='text' name='categoria' value='{$dato["CATEGORIA"]}'><br>
             <label>Director de grupo</label><input type='radio' name='director' value='si'>Sí
             <input type='radio' name='director' value='no' checked>No<br>
-            <label>Contraseña</label><input type='hidden' name='pass' value='{$dato["PASSWORD"]}'><br>
+            <input type='hidden' name='pass' value='{$dato["PASSWORD"]}'><br>
             <label>Telefono</label><input type='text' name='telefono' value='{$dato["TELEFONO"]}'><br>
             <label>Url personal</label><input type='url' name='url' value='{$dato["URL"]}'><br>
             <label>Departamento</label><input type='text' name='dep' value='{$dato["DEPARTAMENTO"]}'><br>

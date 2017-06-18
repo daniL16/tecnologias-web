@@ -5,8 +5,10 @@ require_once ('db.php');
 $nuevo = false;
 
 $direct = 0;
-if($_POST['director'] == "si"){
-    $direct = 1;
+if(isset($_POST['director'])){
+    if($_POST['director']==  "si"){
+        $direct = 1;
+    }
 }
 
 $nuevo["email"] = $_POST["email"];
@@ -30,7 +32,8 @@ if($nombrefoto == ''){
     $destino="/img/desconocido.jpg";
 }
 else{
-    $destino="/img/users/".$nombrefoto; //esto es el destino en donde se guardara la foto
+    $destino="./img/users/".$nombrefoto; //esto es el destino en donde se guardara la foto
+    echo $ruta.'  '.$destino;
     move_uploaded_file($ruta, $destino);
 }
 $nuevo["foto"] = $destino;
@@ -41,10 +44,9 @@ $ok = DB_addMiembro($db,$nuevo);
 DB_log($db,$_SESSION['usuario'],"Crear usuario ".$nuevo["email"]);
 DB_desconexion($db);
 
-if($ok){
-    //header('Location:~daniellg1617/investiga/index.php');
-    header('Location:/index.php');
-}
+if($ok)
+    header('Location:../miembros.php');
+   
 else {
     echo "Ocurrió un error durante el proceso";
 }

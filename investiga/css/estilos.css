@@ -84,7 +84,10 @@ body{
 #registro label{
     padding: 10px;
 }
-
+.foto img{
+    width: 150px;
+    width: 150px;
+}
 @media screen and (max-device-width: 480px) and (orientation: portrait) { 
   header{
     height: 24%;

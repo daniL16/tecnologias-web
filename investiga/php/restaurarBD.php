@@ -11,7 +11,9 @@ $error = '';
 //Obtengo el último backup realizado
 $d = dir("../backup");
 $f = $d->read();
-
+while(is_dir($f)){
+    $f = $d->read();
+}
 //Obtenemos las sentencias sql
 $sql = file_get_contents('../backup/'.$f);
 $queries = explode(';',$sql);

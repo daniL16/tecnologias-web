@@ -44,7 +44,7 @@ CREATE TABLE `MIEMBROS` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO MIEMBROS VALUES("ADMIN","","","admin@lh.com","21232f297a57a5a743894a0e4a801fc3","","","","","","","","0","1","0","0");
-INSERT INTO MIEMBROS VALUES("Daniel ","López García","Alumno","dani@lh.com","55b7e8b895d047537e672250dd781555","666856000","http://www.github.com/daniL16","DECSAI","ETSIIT","Universidad de Granada","","/img/","0","0","0","0");
+INSERT INTO MIEMBROS VALUES("Daniel ","López García","Alumno","dani@lh.com","55b7e8b895d047537e672250dd781555","666856000","http://www.github.com/daniL16","DECSAI","ETSIIT","Universidad de Granada","","/img/desconocido.jpg","0","0","0","0");
 
 CREATE TABLE `PUBLICACIONES` (
   `DOI` varchar(32) NOT NULL,

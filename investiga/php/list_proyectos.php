@@ -1,6 +1,6 @@
 <?php 
     require_once 'db.php';
-    session_start();
+    
 
     $db = DB_conexion();
     
@@ -37,7 +37,7 @@
             echo "</td>";
             
             if (isset($_SESSION['usuario'])){
-            echo "<td class='ciu_botones'><form action='$accion' method='POST'>
+            echo "<td class='ciu_botones'><form action='' method='POST'>
               <input type='hidden' name='id' value='{$proyecto['CODIGO']}' />
               <input type='submit' name='accion' value='Editar' />
               <input type='submit' name='accion' value='Borrar' />
