@@ -140,8 +140,8 @@ function DB_log($db,$user,$action){
     mysqli_query($db,"INSERT INTO LOG (usuario,fecha,hora,accion) VALUES ('{$user}','{$fecha}','{$hora}','{$action}')");
 }
 
-function DB_getLog($db){
-    $res = mysqli_query($db,"SELECT * FROM LOG");
+function DB_getLog($db,$inicio,$fin){
+    $res = mysqli_query($db,"SELECT * FROM LOG LIMIT {$inicio},{$fin}");
       if ($res) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)

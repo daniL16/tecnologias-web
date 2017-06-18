@@ -88,6 +88,14 @@ body{
     width: 150px;
     width: 150px;
 }
+#paginador{
+  width: 100 %;
+  text-align: center;
+}
+.pags{
+  padding: 10px;
+  border: black 0.5px solid;
+}
 @media screen and (max-device-width: 480px) and (orientation: portrait) { 
   header{
     height: 24%;

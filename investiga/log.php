@@ -4,7 +4,7 @@
 <?php include 'inc/nav.php' ?>    
 <article id="contenido">
 <?php include 'php/list_log.php' ?>
-    </article>
+</article>
 <?php include 'inc/footer.html'?>
 </body>
 </html>

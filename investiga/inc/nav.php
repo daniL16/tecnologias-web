@@ -17,7 +17,7 @@
             }
         }
         ?>
-        <li><a href="/~daniellg1617/doc/documentacion.pdf">Documentación</a></li>
+        <li><a href="/~daniellg1617/investiga/doc/documentacion.pdf">Documentación</a></li>
         
     </ul>
 </aside>
