@@ -10,7 +10,7 @@
 <?php
     // A partir de los datos introducidos creamos el archivo de credenciales
     if(isset($_POST['host'])){
-        $f = fopen("./php/credenciales_test.php","w+");
+        $f = fopen("./php/credenciales.php","w+");
         fwrite($f,"<?php 
         define('DB_HOST','{$_POST['host']}');
         define('DB_DATABASE','{$_POST['database']}'); 

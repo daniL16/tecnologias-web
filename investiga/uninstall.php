@@ -1,4 +1,5 @@
 <?php
+
 include './php/db.php';
 
 $db = DB_conexion();
@@ -18,17 +19,28 @@ foreach ($tablas as $tab) {
 
 
 //Borrar archivos de backup e imagenes
-
 $d = dir('./backup');
-$f = $d->read();
-unlink($f);
-//Borra el directorio
+$imgs = dir ('./img/users');
+
+// Recorre el directorio y borra los archivos que contiene
+while (false !== ($f = $d->read())) {
+   if($f !== '.' and $f !=='..'){
+       unlink('./backup/'.$f);
+   }
+}
+
+while (false !== ($i = $imgs->read())) {
+   if($f !== '.' and $f !=='..'){
+       unlink('./imgs/'.$i);
+   }
+}
+
+//Borra los directorios
 rmdir('./backup');
-
-
-$img = dir('./img/users');
-// recorrer y borrar 
 rmdir('./img/users');
+
+//borra el archivo de credenciales
+unlink('./php/credenciales_test.php');
 
 DB_desconexion($db);
 
