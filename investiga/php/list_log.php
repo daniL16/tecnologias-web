@@ -5,22 +5,22 @@
 
     if(isset($_GET['pag'])){
         $actual = $_GET['pag'];
-        $inicio = ($actual-1)*10;
-        $fin = $inicio+10;
+        $inicio = ($actual-1)*5;
+        $nfilas = 5;
     }
     else{
         $inicio = 0;
-        $fin = 5;
+        $nfilas = 5;
         $actual = 1;
     }
     
 
-    $logs = DB_getLog($db,$inicio,$fin);
+    $logs = DB_getLog($db,$inicio,$nfilas);
 
     $num_rows=DB_getNumLogs($db);
     $anterior=$actual-1;
     $siguiente=$actual+1;
-    $ultima=$num_rows/10;
+    $ultima=floor($num_rows/5);
 
     echo "<table class='tabla_result'><tr><th>Usuario</th><th>Acción</th><th>Fecha</th><th>Hora</th>";
     foreach($logs as $v){

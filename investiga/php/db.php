@@ -141,7 +141,7 @@ function DB_log($db,$user,$action){
 }
 
 function DB_getLog($db,$inicio,$fin){
-    $res = mysqli_query($db,"SELECT * FROM LOG LIMIT {$inicio},{$fin}");
+    $res = mysqli_query($db,"SELECT * FROM LOG ORDER BY FECHA,HORA DESC LIMIT {$inicio},{$fin} ");
       if ($res) {
         // Si no hay error
         if (mysqli_num_rows($res)>0)
