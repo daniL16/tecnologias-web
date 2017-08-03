@@ -46,7 +46,7 @@ DB_log($db,$_SESSION['usuario'],"Editar usuario ".$nuevo["email"]);
 DB_desconexion($db);
 
 if($ok){
-    //header('Location:~daniellg1617/investiga/index.php');
+    //header('Location:~daniellg1617sep/investiga/index.php');
     header('Location:../miembros.php');
 }
 else {

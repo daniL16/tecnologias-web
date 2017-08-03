@@ -1,8 +1,10 @@
 <?php include 'inc/head.php' ?>
 <body>
 <?php include 'inc/header.php' ?>
-<?php include 'inc/nav.php' ?>    
-<article id="contenido">
+<?php include 'inc/nav.php' ?>  
+    
+<?php    if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado')
+    echo '<article id="contenido">
         <form  id="registro" method=post action="./php/nuevoProyecto.php" onsubmit="return validar_fechas();" >
             <label>Título</label><input type="text" name="tit" id="tit"><br>
             <label>Código</label><input type="text" name="codigo" id="codigo"><br>
@@ -18,7 +20,8 @@
             <input type="submit" name="reg" value="Nuevo proyecto">
     </form>
         
-</article>
+</article>';
+else include 'inc/error.html' ?>
 <?php include 'inc/footer.html'?>
 </body>
 </html>

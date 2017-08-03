@@ -1,6 +1,6 @@
 <header>
     <section id="titulo">
-        <img src="/~daniellg1617/investiga/img/logo.jpeg" class="logo">
+        <img src="/~daniellg1617sep/investiga/img/logo.jpeg" class="logo">
         <h1>Grupo de Investigación</h1>
     </section>
     <section id="login">
