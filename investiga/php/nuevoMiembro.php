@@ -11,19 +11,19 @@ if(isset($_POST['director'])){
     }
 }
 
-$nuevo["email"] = $_POST["email"];
-$nuevo["nombre"] = $_POST["nombre"];
-$nuevo["apellidos"] = $_POST["apellidos"];
+$nuevo["email"] = mysqli_real_escape_string( $_POST["email"] );
+$nuevo["nombre"] = mysqli_real_escape_string( $_POST["nombre"] );
+$nuevo["apellidos"] = mysqli_real_escape_string( $_POST["apellidos"]);
 //encripto la contraseña para guardarla en la BD
 $nuevo["pass"] = md5($_POST["pass"]); 
 $nuevo["director"] = $direct;
 $nuevo["telefono"] = $_POST["telefono"];
-$nuevo["url"] = $_POST["url"];
-$nuevo["depart"] = $_POST["dep"];
-$nuevo["centro"] = $_POST["centro"];
-$nuevo["uni"] = $_POST["uni"];
-$nuevo["direccion"] = $_POST["dir"];
-$nuevo["categoria"] = $_POST["categoria"];
+$nuevo["url"] = mysqli_real_escape_string($_POST["url"]);
+$nuevo["depart"] = mysqli_real_escape_string($_POST["dep"]);
+$nuevo["centro"] = mysqli_real_escape_string( $_POST["centro"]);
+$nuevo["uni"] = mysqli_real_escape_string( $_POST["uni"]);
+$nuevo["direccion"] = mysqli_real_escape_string( $_POST["dir"]);
+$nuevo["categoria"] = mysqli_real_escape_string($_POST["categoria"]);
 
 $nombrefoto=$_FILES['image'] ['name']; //esto es el nombre de la imagen
 $ruta=$_FILES['image'] ['tmp_name']; //se le asigna una nombre temporal que sera la ruta

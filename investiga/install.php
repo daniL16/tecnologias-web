@@ -1,16 +1,16 @@
-
+<!-- Formulario para obtener las credenciales -->
 <form action="" method="post">
 <label>Host</label><input type="text" name="host"><br>
 <label>Database</label><input type="text" name="database"><br>
-<label>Password</label><input type="password" name="pass"><br>
 <label>User</label><input type="text" name ="user"><br>
+<label>Password</label><input type="password" name="pass"><br>
 <input type="submit" value="Crear Credenciales BD">
 </form>
 
 <?php
     // A partir de los datos introducidos creamos el archivo de credenciales
     if(isset($_POST['host'])){
-        $f = fopen("/~daniellg1617sep/investiga/php/credenciales.php","w+");
+        $f= fopen("./php/credenciales.php","w+");
         fwrite($f,"<?php 
         define('DB_HOST','{$_POST['host']}');
         define('DB_DATABASE','{$_POST['database']}'); 

@@ -7,13 +7,17 @@
         <?php
         //session_start();
         if(isset($_SESSION['usuario']) and $_SESSION['estado'] == 'Autenticado'){
-            echo "<li><a href='/~daniellg1617sep/investiga/registrar_publicacion.php'>Añadir publicación</a></li>";
-            echo "<li><a href='/~daniellg1617sep/investiga/registrar_proyecto.php'>Añadir proyecto</a></li>";
+            echo "<li id='add'>Añadir
+                  <ul id='submenu_add'>
+                    <li><a href='/~daniellg1617sep/investiga/registrar_publicacion.php'>Añadir publicación</a></li>
+                    <li><a href='/~daniellg1617sep/investiga/registrar_proyecto.php'>Añadir proyecto</a></li></ul></li>";
             if($_SESSION['admin']){
-               echo "<li><a href='/~daniellg1617sep/investiga/miembros.php'>Editar usuario</a></li>";
-               echo "<li><a href='/~daniellg1617sep/investiga/log.php'>Ver log</a></li>";
-               echo "<li><a href='/~daniellg1617sep/investiga/php/backup.php'>Realizar un backup</a></li>";
-               echo "<li><a href='/~daniellg1617sep/investiga/php/restaurarBD.php'>Restaurar BD</a></li>" ;
+               echo "<li id='admin'>Tareas de administracion
+                     <ul id='submenu_admin'>
+                        <li><a href='/~daniellg1617sep/investiga/log.php'>Ver log</a></li>
+                        <li><a href='/~daniellg1617sep/investiga/php/backup.php'>Realizar un backup</a></li>
+                        <li><a href='/~daniellg1617sep/investiga/php/restaurarBD.php'>Restaurar BD</a></li>
+                    </ul></li>";
             }
         }
         ?>

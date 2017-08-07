@@ -1,0 +1,10 @@
+$(document).ready(function(){
+    $("#submenu_add").hide();
+     $("#submenu_admin").hide();
+    $("#add").hover(function(e){
+        $("#submenu_add").toggle(300,stop);
+    });
+     $("#admin").hover(function(e){
+        $("#submenu_admin").toggle(300,stop);
+    });
+});

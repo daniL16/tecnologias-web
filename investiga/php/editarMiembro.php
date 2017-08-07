@@ -24,17 +24,17 @@ if($_POST['block'] == "si"){
     $block = 1;
 }
 
-$nuevo["email"] = $_POST["email"];
-$nuevo["nombre"] = $_POST["nombre"];
-$nuevo["apellidos"] = $_POST["apellidos"]; 
+$nuevo["email"] = mysqli_real_escape_string($_POST["email"]);
+$nuevo["nombre"] = mysqli_real_escape_string($_POST["nombre"]);
+$nuevo["apellidos"] = mysqli_real_escape_string( $_POST["apellidos"]); 
 $nuevo["director"] = $direct;
 $nuevo["telefono"] = $_POST["telefono"];
-$nuevo["url"] = $_POST["url"];
-$nuevo["depart"] = $_POST["dep"];
-$nuevo["centro"] = $_POST["centro"];
-$nuevo["uni"] = $_POST["uni"];
-$nuevo["direccion"] = $_POST["dir"];
-$nuevo["categoria"] = $_POST["categoria"];
+$nuevo["url"] = mysqli_real_escape_string( $_POST["url"]);
+$nuevo["depart"] = mysqli_real_escape_string( $_POST["dep"]);
+$nuevo["centro"] = mysqli_real_escape_string( $_POST["centro"]);
+$nuevo["uni"] = mysqli_real_escape_string( $_POST["uni"]);
+$nuevo["direccion"] = mysqli_real_escape_string( $_POST["dir"]);
+$nuevo["categoria"] = mysqli_real_escape_string( $_POST["categoria"]);
 $nuevo["admin"] = $admin;
 $nuevo["old"] = $old;
 $nuevo["block"] = $block;
@@ -46,7 +46,6 @@ DB_log($db,$_SESSION['usuario'],"Editar usuario ".$nuevo["email"]);
 DB_desconexion($db);
 
 if($ok){
-    //header('Location:~daniellg1617sep/investiga/index.php');
     header('Location:../miembros.php');
 }
 else {
