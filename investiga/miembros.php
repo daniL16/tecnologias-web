@@ -12,17 +12,21 @@
 <?php 
     if (isset($_POST['accion']) && isset($_POST['id'])) {
         switch ($_POST['accion']) {
+            case 'Cancelar': break;
+            
             case 'Borrar':
                 $id = $_POST['id'];
                 borrarMiembro($id);
                 break;
+            
             case 'Editar': // Presentar formulario y pedir confirmación
                 $id = $_POST['id'];
                 $db = DB_conexion();
                 $datos = DB_getMiembro($db,$id);
-                FORM_editMiembro($datos);
-                break;
-            case 'Cancelar': break;
+            ?>
+               <script>formMiembro(<?php $datos ?>);</script> 
+            
+           <?php
         }
     }
 ?>
