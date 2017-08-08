@@ -39,7 +39,7 @@
               </form>
               </article>';
     }
-else include 'inc/error.html' ?>
-<?php include 'inc/footer.html'?>
+    else include 'inc/error.html';
+    include 'inc/footer.html'?>
 </body>
 </html>

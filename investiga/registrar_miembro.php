@@ -1,10 +1,12 @@
 <?php include 'inc/head.php' ?>
 
 <body>
-<?php include 'inc/header.php' ?>
-<?php include 'inc/nav.php' ?>    
-<article id="contenido">
-        <form  id="registro" method=post action="./php/nuevoMiembro.php" onsubmit="return validar_miembro();"  enctype="multipart/form-data"  >
+<?php 
+    include 'inc/header.php';
+    include 'inc/nav.php';
+    if(isset($_SESSION['usuario']) and $_SESSION['admin']){
+        echo '<article id="contenido">
+          <form  id="registro" method=post action="./php/nuevoMiembro.php" onsubmit="return validar_miembro();"  enctype="multipart/form-data"  >
             <label>Nombre</label><input type="text" name="nombre" id="nombre" value="<?php if (
 isset($_POST['nombre'])) echo $_POST['nombre']; ?>"><br>
             <label>Apellidos</label><input type="text" name="apellidos" id="apellidos" value="<?php if (
@@ -32,8 +34,10 @@ isset($_POST['dir'])) echo $_POST['dir']; ?>"><br>
             <input type="submit" name="reg" value="Nuevo miembro">
     </form>
         
-    </article>
-<?php include 'inc/footer.html'?>
+    </article>';
+    }
+    else include 'inc/error.html'
+    include 'inc/footer.html';
 </body>
 </html>
    

@@ -4,16 +4,16 @@ require_once ('db.php');
    
 $nuevo = false;
 
-$nuevo["titulo"] = mysqli_real_escape_string( $_POST["tit"]);
-$nuevo["codigo"] = mysqli_real_escape_string( $_POST["codigo"]);
+$nuevo["titulo"] =  $_POST["tit"];
+$nuevo["codigo"] = $_POST["codigo"];
 $nuevo["fecha_com"] = $_POST["fecha_com"];
 $nuevo["fecha_fin"] = $_POST["fecha_fin"];
-$nuevo["descripcion"] = mysqli_real_escape_string( $_POST["desc"]);
-$nuevo["entidades"] = mysqli_real_escape_string( $_POST["entidades"]);
-$nuevo["cuantia"] = mysqli_real_escape_string( $_POST["cuantia"] );
-$nuevo["investigador_ppal"] = mysqil_real_escape_string( $_POST["inv_ppal"]);
+$nuevo["descripcion"] = $_POST["desc"];
+$nuevo["entidades"] =  $_POST["entidades"];
+$nuevo["cuantia"] = $_POST["cuantia"] ;
+$nuevo["investigador_ppal"] =  $_POST["inv_ppal"];
 $nuevo["colaboradores"] = $_POST["colaboradores"];
-$nuevo["url"] = mysqli_real_escape_string( $_POST["url"] );
+$nuevo["url"] =  $_POST["url"] ;
 $db= DB_conexion();
 $ok = false;
 $ok = DB_addProyecto($db,$nuevo);
