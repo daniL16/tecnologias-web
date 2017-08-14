@@ -1,7 +1,7 @@
 <header>
     <section id="titulo">
         <img src="/~daniellg1617sep/investiga/img/logo.jpeg" class="logo">
-        <h1>Grupo de Investigación</h1>
+        <h1>Mi Grupo de Investigación</h1>
     </section>
     <section id="login">
      <?php
@@ -15,7 +15,7 @@
     </form>";
        }
       else{
-          echo "<p id='login_form'>Logeado como ".$_SESSION['usuario']."<a href='./php/logout.php'>       Cerrar sesión</a></p>"
+          echo "<p id='login_form'>Logeado como ".$_SESSION['usuario']."<a class='enlaceboton' href='./php/logout.php'>       Cerrar sesión</a></p>"
                 ;
       }
     ?>

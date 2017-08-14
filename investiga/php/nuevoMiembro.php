@@ -11,9 +11,9 @@ if(isset($_POST['director'])){
     }
 }
 
-$nuevo["email"] = mysqli_real_escape_string( $_POST["email"] );
-$nuevo["nombre"] = mysqli_real_escape_string( $_POST["nombre"] );
-$nuevo["apellidos"] = mysqli_real_escape_string( $_POST["apellidos"]);
+$nuevo["email"] = $_POST["email"] ;
+$nuevo["nombre"] = $_POST["nombre"] ;
+$nuevo["apellidos"] = $_POST["apellidos"];
 //encripto la contraseña para guardarla en la BD
 $nuevo["pass"] = md5($_POST["pass"]); 
 $nuevo["director"] = $direct;
