@@ -12,7 +12,10 @@ $nuevo["descripcion"] = $_POST["desc"];
 $nuevo["entidades"] =  $_POST["entidades"];
 $nuevo["cuantia"] = $_POST["cuantia"] ;
 $nuevo["investigador_ppal"] =  $_POST["inv_ppal"];
-$nuevo["colaboradores"] = $_POST["colaboradores"];
+$nuevo["colaboradores"] ='';
+foreach ($_POST["inv_col"] as $col){
+    $nuevo["colaboradores"] .= $col.',';
+}
 $nuevo["url"] =  $_POST["url"] ;
 $db= DB_conexion();
 $ok = false;

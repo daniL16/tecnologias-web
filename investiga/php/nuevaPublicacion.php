@@ -4,13 +4,17 @@ require_once ('db.php');
    
 $nuevo = false;
 
-$nuevo["titulo"] = mysql_real_escape_string($_POST["titulo"]);
-$nuevo["DOI"] = mysql_real_escape_string($_POST["DOI"]);
+$nuevo["titulo"] = $_POST["titulo"];
+$nuevo["DOI"] = $_POST["DOI"];
 $nuevo["fecha"] = $_POST["fecha"];
-$nuevo["abstract"] = mysql_real_escape_string($_POST["abstract"]);
-$nuevo["autores"] = mysql_real_escape_string($_POST["autores"]);
-$nuevo["keywords"] = mysql_real_escape_string($_POST["keywords"]);
-$nuevo["proyecto"] = mysql_real_escape_string($_POST["proyecto"]);
+$nuevo["abstract"] = $_POST["abstract"];
+
+$nuevo["autores"] ='';
+foreach ($_POST["autores"] as $autor){
+    $nuevo["autores"] .= $autor.',';
+}
+$nuevo["keywords"] = $_POST["keywords"];
+$nuevo["proyecto"] = $_POST["proyecto"];
 $nuevo["url"] = $_POST["url"];
 $db= DB_conexion();
 $ok = false;

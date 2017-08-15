@@ -23,14 +23,14 @@
               <label>Investigador principal</label><select name="inv_ppal">';
         
         foreach ($miembros as $miembro){
-            echo "<option value={$miembro[ 'EMAIL']}>{$miembro[ 'NOMBRE']}{$miembro[ 'APELLIDOS']}</option>";
+            echo "<option value={$miembro[ 'EMAIL']}>{$miembro[ 'NOMBRE']} {$miembro[ 'APELLIDOS']}</option>";
         }
         
         echo '</select><br>
-              <label>Investigadores colaboradores</label><ul>';
+              <label>Investigadores colaboradores:</label><ul id="colab_ul">';
         
         foreach ($miembros as $miembro){
-            echo "<li><input type='checkbox' name='inv_col[]' value={$miembro[ 'EMAIL']}> {$miembro[ 'NOMBRE']}{$miembro[ 'APELLIDOS']} </li><br>";
+            echo "<li><input type='checkbox' name='inv_col[]' value={$miembro[ 'EMAIL']}> {$miembro[ 'NOMBRE']} {$miembro[ 'APELLIDOS']} </li><br>";
         }
         
         echo  '<li><input type="text" name="inv_col[]" placeholder="Otro"></li></ul>

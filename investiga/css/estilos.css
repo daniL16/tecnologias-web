@@ -75,6 +75,9 @@ body{
     float:right;
 }
 
+#colab_ul{
+    list-style: none;
+}
 .tabla_result{
     padding: 30px;
   width: 100%;
